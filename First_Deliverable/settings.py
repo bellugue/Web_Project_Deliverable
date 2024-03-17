@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'Car_Renting',
 ]
 
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
