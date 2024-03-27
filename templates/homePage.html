@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {%  load static %}
+    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'homePage.css' %}">
-
     <meta charset="UTF-8">
     <title>Home Page</title>
 </head>
 <body>
-    <div class="container">
+    <header>
+        <div class="header-links">
+            <!--<a href="/login">Login</a>-->
+            <li><a href="{% url 'login' %}"> Login </a></li>
+        </div>
+        <div class="header-links">
+            <a href="/register">Register</a>
+        </div>
         <h1>Car Renting</h1>
+    </header>
+
+    <div class="container">
         <p>Please select an option:</p>
-        <a href="/register/" class="btn">Register</a>
-        <a href="/login/" class="btn">Log In</a>
         <a href="/choose-car/" class="btn">Choose Car</a>
     </div>
-    <h1>Llistat de concessionaris</h1>
-    <ul>
-        {% for dealer in authorisedDealers %}
-            <li>{{ dealer.id_authorisedDealer }} - {{ dealer.location }} - {{ dealer.schedule }}</li>
-        {% endfor %}
-    </ul>
+
+    <div class="container">
+        <h1>Llistat de concessionaris</h1>
+        <ul>
+            {% for dealer in authorisedDealers %}
+                <li>{{ dealer.id_authorisedDealer }} - {{ dealer.location }} - {{ dealer.schedule }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2024 My Company. All rights reserved.</p>
+        <p>Contact: info@mycompany.com | Phone: 123-456-7890</p>
+    </footer>
 </body>
 </html>
