@@ -15,28 +15,17 @@ def homePage(request):
     return render(request, 'homePage.html', {'authorisedDealers': authorisedDealers})
 
 
+def login(request):
+    return render(request,'registration/login.html')
 def register(request):
-
-    if request.method == 'POST':
-        if request.method == 'POST':
-            form = forms.UserCreationForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('/')
-        else:
-            form = forms.UserCreationForm()
-
-        context = {'form': form}
-        return render(request, 'register.html', context)
-
     if request.method == 'POST':
         form = forms.UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)  # Log in the newly registered user
-            return redirect('home')  # Redirect to your desired page after registration
+            return redirect('homePage')  # Redirect to your desired page after registration
     else:
         form = forms.UserCreationForm()
 
     context = {'form': form}
-    return render(request, 'register.html', context)  # Ensure this line is present
+    return render(request, 'registration/register.html', context)  # Ensure this line is present
