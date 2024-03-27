@@ -1,34 +1,46 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-    height: 100vh;
 }
 
-/* Estilos de la lista de navegación */
-nav ul {
-    list-style-type: none;
-    margin: 0 auto; /* Esto centrará la lista horizontalmente */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.header-links {
+    float: left;
+    padding: 10px;
+}
+
+.concessionaires-list {
+    margin-top: 20px;
+    list-style: none;
     padding: 0;
-    text-align: center; /* Si es necesario centrar los elementos dentro de la lista */
 }
 
-nav ul li {
-    display: block; /* Cambiado a bloque para que los elementos estén uno debajo del otro */
-    margin-bottom: 10px; /* Espaciado entre elementos */
+.concessionaires-list li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
 }
 
-nav ul li a {
-    display: inline-block;
-    padding: 10px 20px; /* Espaciado interno */
-    background-color: #f0f0f0; /* Color de fondo */
-    color: #333; /* Color del texto */
-    text-decoration: none;
-    border: 1px solid #ccc; /* Borde */
-    border-radius: 5px; /* Borde redondeado */
-}
-
-nav ul li a:hover {
-    background-color: #ddd; /* Cambio de color al pasar el ratón */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
