@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f0f0f0;
+    height: 100vh;
+}
+
+/* Estilos de la lista de navegación */
+nav ul {
+    list-style-type: none;
+    margin: 0 auto; /* Esto centrará la lista horizontalmente */
+    padding: 0;
+    text-align: center; /* Si es necesario centrar los elementos dentro de la lista */
+}
+
+nav ul li {
+    display: block; /* Cambiado a bloque para que los elementos estén uno debajo del otro */
+    margin-bottom: 10px; /* Espaciado entre elementos */
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #f0f0f0; /* Color de fondo */
+    color: #333; /* Color del texto */
+    text-decoration: none;
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Borde redondeado */
+}
+
+nav ul li a:hover {
+    background-color: #ddd; /* Cambio de color al pasar el ratón */
+}

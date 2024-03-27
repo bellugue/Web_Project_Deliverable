@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
-from Car_Renting.models import Car
+from Car_Renting.models import Car, AuthorisedDealer
 
 
 # Create your views here.
 
-class CarRentingView(ListView):
-    model = Car
-    template_name =
+def homePage(request):
+    authorisedDealers = AuthorisedDealer.objects.all()
+    return render(request, 'homePage.html', {'authorisedDealers': authorisedDealers})
