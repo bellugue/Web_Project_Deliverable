@@ -29,3 +29,7 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'registration/register.html', context)  # Ensure this line is present
+
+def list_cars(request):
+    cars = Car.objects.all()
+    return render(request, 'carlist.html', {'cars' : cars})

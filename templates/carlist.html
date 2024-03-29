@@ -2,11 +2,42 @@
 <html lang="en">
 <head>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'homePage' %}"
+    <link rel="stylesheet" type="text/css" href="{% static 'carlist.css' %}">
     <meta charset="UTF-8">
     <title>Car List</title>
 </head>
 <body>
-
+    <header>
+       <h1>Car Renting</h1> 
+    </header>
+    <div class="container">
+        <h1>Llista de cotxes disponibles</h1>
+        <table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Matrícula</th>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th>Kilometraje</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for car in cars %}
+            <tr>
+                <td>{{ car.name }}</td>
+                <td>{{ car.licensePlate }}</td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.brand }}</td>
+                <td>{{ car.mileage }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    </div>
+    <footer>
+        <p>© 2024 My Company. All rights reserved.</p>
+        <p>Contact: info@mycompany.com | Phone: 123-456-7890</p>
+    </footer>
 </body>
 </html>
