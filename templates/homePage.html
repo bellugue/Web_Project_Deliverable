@@ -10,7 +10,7 @@
     <header>
         <div class="header-links">
             <!--<a href="/login">Login</a>-->
-            <li><a href="{% url 'login' %}"> Login </a></li>
+            <li><a href="{% url 'login' %}" class="{% if request.path == '/login' %}active{% endif %}"> Login </a></li>
         </div>
         <div class="header-links">
             <!--<a href="/register">Register</a> -->
