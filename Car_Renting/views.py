@@ -17,6 +17,7 @@ def homePage(request):
 
 def login(request):
     return render(request,'registration/login.html')
+
 def register(request):
     if request.method == 'POST':
         form = forms.UserCreationForm(request.POST)
@@ -29,9 +30,9 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'registration/register.html', context)  # Ensure this line is present
-<<<<<<< HEAD
+#<<<<<<< HEAD
 #comment
-=======
+
 
 def list_cars(request):
     cars = Car.objects.all()
@@ -48,4 +49,4 @@ def reset_password(request):
         form = forms.PasswordResetForm()
     context = {'form': form}
     return render(request, 'passwordReset.html', context)
->>>>>>> master
+#>>>>>>> master

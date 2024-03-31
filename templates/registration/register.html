@@ -1,24 +1,39 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Registre</title>
-    <body>
-    <h1>Enter the data</h1>
-    <form action="{% url 'register' %}" method="post">
-        {% csrf_token %}
-        <label for="username">Name user:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="email">Gmail:</label><br>
-        <input type="email" id="email" name="email"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br>
-        <input type="submit" value="Registrar">
-    </form>
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset</title>
+    <link rel="stylesheet" href="{% static 'register.css' %}">
 </head>
+<header>
+        <h1>Car Renting</h1>
+</header>
 <body>
+    <div class="container">
+        <h1>Register</h1>
+        <form action="{% url 'register' %}" method="post">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            {% csrf_token %}
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+             <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+    
 
+    <footer>
+        <p>© 2024 My Company. All rights reserved.</p>
+        <p>Contact: info@mycompany.com | Phone: 123-456-7890</p>
+    </footer>
 </body>
 </html>
+
+
+
+
