@@ -29,3 +29,4 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'registration/register.html', context)  # Ensure this line is present
+#comment
