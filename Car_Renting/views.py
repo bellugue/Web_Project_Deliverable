@@ -33,3 +33,15 @@ def register(request):
 def list_cars(request):
     cars = Car.objects.all()
     return render(request, 'carlist.html', {'cars' : cars})
+
+def reset_password(request):
+    if request.method == 'POST':
+        form = forms.PasswordResetForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('login')
+    else:
+        form = forms.PasswordResetForm()
+    context = {'form': form}
+    return render(request, 'passwordReset.html', context)
