@@ -51,3 +51,7 @@ def reset_password(request):
         form = forms.PasswordResetForm()
     context = {'form': form}
     return render(request, 'passwordReset.html', context)
+
+def seleccio_cotxe(request, name):
+    car = Car.objects.get(name=name)
+    return render(request, 'car_selection.html', {'car': car})

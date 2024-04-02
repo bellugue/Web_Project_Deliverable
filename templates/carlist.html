@@ -10,16 +10,17 @@
     <header>
        <h1>Car Renting</h1> 
     </header>
+    <a href="#" onclick="history.back();">Tornar a la pàgina anterior</a>
     <div class="container">
         <h1>Llista de cotxes disponibles</h1>
         <table>
     <thead>
         <tr>
-            <th>Nombre</th>
+            <th>Nom</th>
             <th>Matrícula</th>
-            <th>Modelo</th>
+            <th>Model</th>
             <th>Marca</th>
-            <th>Kilometraje</th>
+            <th>Quilometratge</th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@
                 <td>{{ car.model }}</td>
                 <td>{{ car.brand }}</td>
                 <td>{{ car.mileage }}</td>
+                <td><a href="{% url 'seleccio_cotxe' car.name %}">Seleccionar cotxe '{{ car.name }}'</a></td>
             </tr>
         {% endfor %}
     </tbody>

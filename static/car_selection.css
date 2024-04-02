@@ -1,0 +1,51 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+
+.car-details {
+    float: left; /* Alinea a la izquierda */
+    width: calc(50% - 10px); /* Toma la mitad del ancho del contenedor */
+    padding-right: 20px; /* Espacio a la derecha */
+}
+
+/* Estilos para la información del concesionario */
+.concessionaire-info {
+    float: left; /* Alinea a la izquierda */
+    width: calc(50% - 10px); /* Toma la mitad del ancho del contenedor */
+}
+
+.car-details p {
+    margin: 10px 0; /* Espacio entre cada detalle */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+
+.container {
+    max-width: 600px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espacio alrededor del contenedor */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}

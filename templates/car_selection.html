@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'car_selection.css' %}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <header>
+       <h1>Car Renting</h1> 
+    </header>
+    <a href="#" onclick="history.back();">Tornar a la pàgina anterior</a>
+    <div class="container">
+        <div class="car-details">
+            <h1>Detalle del Coche</h1>
+            <p>Nombre: {{ car.name }}</p>
+            <p>Matrícula: {{ car.licensePlate }}</p>
+            <p>Modelo: {{ car.model }}</p>
+            <p>Marca: {{ car.brand }}</p>
+            <p>Kilometraje: {{ car.mileage }}</p>
+        </div>
+        <div class="auth-dealer-info">
+            <h1>Informació del concessionari</h1>
+        </div>
+    </div>    
+    <footer>
+        <p>© 2024 My Company. All rights reserved.</p>
+        <p>Contact: info@mycompany.com | Phone: 123-456-7890</p>
+    </footer>
+</body>
+</html>
