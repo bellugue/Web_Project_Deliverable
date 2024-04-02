@@ -16,7 +16,13 @@ def homePage(request):
 
 
 def login(request):
-    return render(request,'registration/login.html')
+    if request.method == 'POST':
+        form = forms.AuthenticationForm(request.POST)
+    else:
+        form = forms.AuthenticationForm()
+
+    context = {'form': form}
+    return render(request,'registration/login.html', context)
 def register(request):
     if request.method == 'POST':
         form = forms.UserCreationForm(request.POST)
