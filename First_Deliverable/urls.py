@@ -25,5 +25,5 @@ urlpatterns = [
     path('register/',register,name='register'),
     path('carlist/',list_cars, name='carList'),
     path('reset_password/', reset_password, name='reset_password'),
-    path('coches/<str:name>/', seleccio_cotxe, name='seleccio_cotxe'),
+    path('coches/<str:name>/', seleccio_cotxe, name='seleccio_cotxe')
 ]
