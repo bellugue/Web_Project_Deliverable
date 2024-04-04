@@ -1,100 +1,91 @@
-body{
+:root {
+    --primary-color: #333; /* Color primario para fondo oscuro */
+    --secondary-color: #fff; /* Color secundario para texto sobre fondo oscuro */
+    --button-color: #007bff; /* Color de botones */
+    --button-hover-color: #0056b3; /* Color de botones al pasar el ratón */
+    --container-background: #f9f9f9; /* Color de fondo de contenedores */
+    --border-color: #ccc; /* Color de bordes */
+}
+
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+header, footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
-    top: 0;
+    padding: 10px 0;
     width: 100%;
 }
 
-
-.car-details {
-    float: left; /* Alinea a la izquierda */
-    width: calc(50% - 10px); /* Toma la mitad del ancho del contenedor */
-    padding-right: 20px; /* Espacio a la derecha */
-}
-
-/* Estilos para la información del concesionario */
-.concessionaire-info {
-    float: left; /* Alinea a la izquierda */
-    width: calc(50% - 10px); /* Toma la mitad del ancho del contenedor */
-}
-
-.car-details p {
-    margin: 10px 0; /* Espacio entre cada detalle */
-    font-size: 16px; /* Tamaño de fuente */
-}
-
-
-.container {
-    max-width: 600px; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    padding: 20px; /* Espacio alrededor del contenedor */
-}
-
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
-}/* Estilo del contenedor del formulario */
-
-/* Estilo del contenedor del formulario */
-.form-container {
-    width: 400px; /* Ancho del contenedor */
-    margin: 50px auto 100px auto; /* Centrar el contenedor vertical y horizontalmente, con margen grande en la parte inferior */
-    padding: 30px; /* Espacio interior del contenedor */
-    border: 2px solid #000000; /* Borde del contenedor */
-    border-radius: 10px; /* Bordes redondeados */
-    background-color: #f9f9f9; /* Color de fondo del contenedor */
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Sombra suave */
 }
 
-/* Estilo del formulario */
+.container {
+    max-width: 600px;
+    margin: 20px auto; /* Ajuste para espacio superior e inferior */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    gap: 20px; /* Espacio entre elementos */
+}
+
+.car-details, .concessionaire-info {
+    flex-basis: calc(50% - 10px); /* Uso de flexbox para disposición */
+    padding-right: 20px;
+}
+
+.car-details p, .concessionaire-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.form-container {
+    max-width: 400px; /* Ajuste de ancho máximo */
+    margin: 50px auto 100px;
+    padding: 30px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--container-background);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
 .form-container form {
     display: flex;
-    flex-direction: column; /* Disposición en columnas */
+    flex-direction: column;
 }
 
-/* Estilo de los campos del formulario */
 .form-container input[type="text"],
 .form-container input[type="email"],
 .form-container button {
-    margin-bottom: 20px; /* Espacio entre los campos */
-    padding: 15px; /* Espacio interior del campo */
-    border: 1px solid #ccc; /* Borde del campo */
-    border-radius: 5px; /* Bordes redondeados del campo */
-    font-size: 16px; /* Tamaño de fuente */
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-/* Estilo del botón de envío */
 .form-container button {
-    background-color: #007bff; /* Color de fondo del botón */
-    color: #fff; /* Color del texto del botón */
-    cursor: pointer; /* Cambiar el cursor al pasar por encima */
-    font-size: 18px; /* Tamaño de fuente */
-    border: none; /* Eliminar borde */
+    background-color: var(--button-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
 }
 
-/* Estilo del botón de envío al pasar el ratón */
 .form-container button:hover {
-    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+    background-color: var(--button-hover-color);
 }
 
-/* Estilo del texto dentro del formulario */
 .form-container p {
-    text-align: center; /* Centrar texto */
-    margin-bottom: 20px; /* Espacio grande en la parte inferior del texto */
-    font-size: 18px; /* Tamaño de fuente */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
 }

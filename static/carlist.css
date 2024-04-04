@@ -1,57 +1,101 @@
-body{
-    font-family: Arial, sans-serif;
+:root {
+    --primary-color: #333; /* Color más oscuro para fondos */
+    --secondary-color: #fff; /* Color claro para texto sobre fondos oscuros */
+    --button-color: #007bff; /* Color para botones */
+    --button-hover-color: #0056b3; /* Color ligeramente más oscuro para botones al pasar el ratón */
+    --container-background: #f9f9f9; /* Color suave para fondo de contenedores */
+    --border-color: #ccc; /* Color neutro para bordes */
+    --text-color: #333; /* Color oscuro para texto sobre fondo claro */
+    --font-size-base: 16px; /* Tamaño de fuente base para consistencia y accesibilidad */
+}
+
+* {
+    box-sizing: border-box; /* Asegura que padding y border sean incluidos en el ancho total de los elementos */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    color: var(--text-color); /* Color de texto base */
+    font-size: var(--font-size-base); /* Tamaño de fuente base */
+    line-height: 1.6; /* Espaciado entre líneas para mejorar legibilidad */
+    background-color: #f0f0f0; /* Color de fondo suave para el cuerpo de la página */
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+header, footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
-    top: 0;
-    width: 100%;
-}
-
-table {
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-        font-family: Arial, sans-serif;
-    }
-
-th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-/* Estilos para los enlaces en la primera columna */
-td:first-child a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-td:first-child a:hover {
-    text-decoration: underline;
-}
-
-.container{
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
+    padding: 15px 0; /* Ajuste de padding para mayor espacio */
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
     position: fixed;
+    left: 0;
+    right: 0;
     bottom: 0;
-    width: 100%;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto; /* Aumento del espacio superior e inferior */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: var(--container-background); /* Fondo para contenedores */
+    border-radius: 8px; /* Bordes redondeados para suavizar la apariencia */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+}
+
+.car-details, .concessionaire-info {
+    flex-basis: calc(50% - 10px);
+    padding: 0 20px; /* Ajuste de padding para coherencia */
+}
+
+.car-details p, .concessionaire-info p {
+    margin: 10px 0;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--container-background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container button {
+    margin-bottom: 20px;
+    padding: 10px 15px; /* Ajuste de padding para mayor comodidad */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: var(--font-size-base);
+}
+
+.form-container button {
+    background-color: var(--button-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
+}
+
+.form-container button:hover {
+    background-color: var(--button-hover-color);
+}
+
+.form-container p {
+    text-align: center;
+    margin-bottom: 20px;
 }

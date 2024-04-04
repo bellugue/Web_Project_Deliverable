@@ -1,44 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Coche - Alquiler de Coches</title>
+    <!-- Carga de archivos estáticos en Django -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'car_selection.css' %}">
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <style>
+        /* Estilos adicionales pueden ser añadidos aquí */
+    </style>
 </head>
 <body>
     <header>
-       <h1>Car Renting</h1> 
+        <h1>Alquiler de Coches</h1>
     </header>
-    <a href="#" onclick="history.back();">Tornar a la pàgina anterior</a>
+
+    <!-- Enlace para volver a la página anterior -->
+    <a href="#" onclick="history.back();">Volver a la página anterior</a>
+
     <div class="container">
-        <div class="car-details">
-            <h1>Detalle del Coche</h1>
-            <p>Nombre: {{ car.name }}</p>
-            <p>Matrícula: {{ car.licensePlate }}</p>
-            <p>Modelo: {{ car.model }}</p>
-            <p>Marca: {{ car.brand }}</p>
-            <p>Kilometraje: {{ car.mileage }}</p>
-        </div>
-        <div class="auth-dealer-info">
-            <h1>Informació del concessionari</h1>
-            <p><strong>ID:</strong> {{ dealer.id_authorisedDealer }}</p>
-            <p><strong>Location:</strong> {{ dealer.location }}</p>
-            <p><strong>Schedule:</strong> {{ dealer.schedule }}</p>
-            <!-- Si deseas mostrar también el NIF del negocio -->
-            <p><strong>Business NIF:</strong> {{ dealer.NIF_bussines.NIF }}</p>
-        </div>
-    </div>    
-       <div class="form-container">
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Reservar</button>
-            </form>
-        </div>
+        <!-- Detalles del coche seleccionado -->
+        <section class="car-details">
+            <h2>Detalle del Coche</h2>
+            <img src="https://neomotor.epe.es/binrepository/990x619/0c31/990d557/none/2594535/VGRS/seat-arona-2021-031-hq_285-48846659_20230613130557.jpg" alt="Imagen del Seat Arona 2021">
+            <ul>
+                <li><strong>Nombre:</strong> {{ car.name }}</li>
+                <li><strong>Matrícula:</strong> {{ car.licensePlate }}</li>
+                <li><strong>Modelo:</strong> {{ car.model }}</li>
+                <li><strong>Marca:</strong> {{ car.brand }}</li>
+                <li><strong>Kilometraje:</strong> {{ car.mileage }}</li>
+            </ul>
+        </section>
+
+        <!-- Información del concesionario -->
+        <section class="auth-dealer-info">
+            <h2>Información del Concesionario</h2>
+            <ul>
+                <li><strong>ID:</strong> {{ dealer.id_authorisedDealer }}</li>
+                <li><strong>Ubicación:</strong> {{ dealer.location }}</li>
+                <li><strong>Horario:</strong> {{ dealer.schedule }}</li>
+                <li><strong>NIF del Negocio:</strong> {{ dealer.NIF_bussines.NIF }}</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Formulario de reserva -->
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Reservar</button>
+        </form>
+    </div>
+
     <footer>
-        <p>© 2024 My Company. All rights reserved.</p>
-        <p>Contact: info@mycompany.com | Phone: 123-456-7890</p>
+        <p>© 2024 Mi Empresa. Todos los derechos reservados.</p>
+        <p>Contacto: info@miempresa.com | Teléfono: 123-456-7890</p>
     </footer>
 </body>
 </html>

@@ -4,41 +4,45 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'carlist.css' %}">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car List</title>
 </head>
 <body>
     <header>
-       <h1>Car Renting</h1> 
+       <h1>Alquiler de Coches</h1>
     </header>
-    <a href="#" onclick="history.back();">Tornar a la pàgina anterior</a>
-    <div class="container">
-        <h1>Llista de cotxes disponibles</h1>
+
+    <a href="#" onclick="history.back();">Volver a la página anterior</a>
+    <main class="container">
+        <h2>Llista de cotxes disponibles</h2>
+        <img src="https://neomotor.epe.es/binrepository/990x619/0c31/990d557/none/2594535/VGRS/seat-arona-2021-031-hq_285-48846659_20230613130557.jpg" alt="Imagen del Seat Arona 2021" style="display:block; margin:auto;">
         <table>
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Matrícula</th>
-            <th>Model</th>
-            <th>Marca</th>
-            <th>Quilometratge</th>
-            <th>Concessionari</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for car in cars %}
-            <tr>
-                <td>{{ car.name }}</td>
-                <td>{{ car.licensePlate }}</td>
-                <td>{{ car.model }}</td>
-                <td>{{ car.brand }}</td>
-                <td>{{ car.mileage }}</td>
-                <td>{{ car.AuthorisedDealer }}</td>
-                <td><a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer%}">Seleccionar cotxe '{{ car.name }}'</a></td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-    </div>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Matrícula</th>
+                    <th>Model</th>
+                    <th>Marca</th>
+                    <th>Quilometratge</th>
+                    <th>Concessionari</th>
+                    <th>Acció</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                    <tr>
+                        <td>{{ car.name }}</td>
+                        <td>{{ car.licensePlate }}</td>
+                        <td>{{ car.model }}</td>
+                        <td>{{ car.brand }}</td>
+                        <td>{{ car.mileage }}</td>
+                        <td>{{ car.AuthorisedDealer }}</td>
+                        <td><a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer %}">Seleccionar cotxe '{{ car.name }}'</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
     <footer>
         <p>© 2024 My Company. All rights reserved.</p>
         <p>Contact: info@mycompany.com | Phone: 123-456-7890</p>
