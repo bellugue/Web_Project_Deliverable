@@ -23,7 +23,7 @@ urlpatterns = [
     path('', homePage, name='homePage'),
     path('login/',login, name='login'),
     path('register/',register,name='register'),
-    path('carlist/',list_cars, name='carList'),
+    path('carlist/<int:pk>/',list_cars, name='carList'),
     path('reset_password/', reset_password, name='reset_password'),
-    path('coches/<str:name>/', seleccio_cotxe, name='seleccio_cotxe')
+    path('coches/<str:car_name>/<str:dealer_id>/', seleccio_cotxe, name='seleccio_cotxe'),
 ]

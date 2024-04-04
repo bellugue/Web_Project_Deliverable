@@ -48,4 +48,53 @@ footer {
     right: 0;
     bottom: 0;
     width: 100%;
+}/* Estilo del contenedor del formulario */
+
+/* Estilo del contenedor del formulario */
+.form-container {
+    width: 400px; /* Ancho del contenedor */
+    margin: 50px auto 100px auto; /* Centrar el contenedor vertical y horizontalmente, con margen grande en la parte inferior */
+    padding: 30px; /* Espacio interior del contenedor */
+    border: 2px solid #000000; /* Borde del contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo del contenedor */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* Estilo del formulario */
+.form-container form {
+    display: flex;
+    flex-direction: column; /* Disposición en columnas */
+}
+
+/* Estilo de los campos del formulario */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container button {
+    margin-bottom: 20px; /* Espacio entre los campos */
+    padding: 15px; /* Espacio interior del campo */
+    border: 1px solid #ccc; /* Borde del campo */
+    border-radius: 5px; /* Bordes redondeados del campo */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Estilo del botón de envío */
+.form-container button {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    font-size: 18px; /* Tamaño de fuente */
+    border: none; /* Eliminar borde */
+}
+
+/* Estilo del botón de envío al pasar el ratón */
+.form-container button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo del texto dentro del formulario */
+.form-container p {
+    text-align: center; /* Centrar texto */
+    margin-bottom: 20px; /* Espacio grande en la parte inferior del texto */
+    font-size: 18px; /* Tamaño de fuente */
 }
