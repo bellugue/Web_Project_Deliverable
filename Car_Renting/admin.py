@@ -21,6 +21,6 @@ class AuthorisedDealerAdmin(admin.ModelAdmin):
 
 @admin.register(Rent)
 class RentAdmin(admin.ModelAdmin):
-    list_display = ['car_rented', 'id_authorisedDealer', 'availability', 'price']
-    list_filter = ['id_authorisedDealer', 'availability']
+    list_display = ['car_rented', 'id_authorisedDealer']
+    list_filter = ['id_authorisedDealer']
     search_fields = ['car_rented__name']

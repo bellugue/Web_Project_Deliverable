@@ -28,7 +28,7 @@
         <h1>Llistat de concessionaris</h1>
         <ul>
             {% for dealer in authorisedDealers %}
-                <li>{{ dealer.id_authorisedDealer }} - {{ dealer.location }} - {{ dealer.schedule }}</li>
+                <li><a href="{% url 'carList' pk=dealer.pk %}">{{ dealer.id_authorisedDealer }} - {{ dealer.location }} - {{ dealer.schedule }}</a></li>
             {% endfor %}
         </ul>
     </div>
