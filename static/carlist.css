@@ -1,27 +1,21 @@
-body{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+h1 {
+    margin-top: 300px;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    top: 0;
-    width: 100%;
+.car-container {
+    margin-top: 20px;
+    text-align: center; /* Centrar la tabla */
 }
 
 table {
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-        font-family: Arial, sans-serif;
-    }
+    width: 70%; /* Reducir el ancho de la tabla */
+    margin: 0 auto; /* Centrar la tabla horizontalmente */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
 th, td {
-    padding: 10px;
+    padding: 8px 10px; /* Reducir el padding de las celdas */
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
@@ -30,28 +24,41 @@ th {
     background-color: #f2f2f2;
 }
 
-/* Estilos para los enlaces en la primera columna */
-td:first-child a {
-    color: #007bff;
-    text-decoration: none;
+tr:hover {
+    background-color: #f5f5f5;
 }
 
-td:first-child a:hover {
+a {
+    display: inline-block; /* Convertir el enlace en un bloque */
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
     text-decoration: underline;
 }
 
-.container{
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
+.button-cell {
+    text-align: left; /* Alinear los botones a la izquierda */
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
+.button {
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    display: inline-block;
+    padding: 8px 16px;
+    width: auto; /* Ancho automático */
+    min-width: 200px; /* Ancho mínimo del botón */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 400; /* Tamaño de la letra más pequeño */
+    font-size: 13px;
+}
+
+.button:hover {
+    background-color: #0056b3;
 }

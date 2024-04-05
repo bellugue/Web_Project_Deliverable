@@ -58,6 +58,7 @@ def reset_password(request):
     context = {'form': form}
     return render(request, 'passwordReset.html', context)
 
+
 @login_required(login_url='login')
 def seleccio_cotxe(request, car_name, dealer_id):
     car = get_object_or_404(Car, name=car_name)
@@ -66,8 +67,12 @@ def seleccio_cotxe(request, car_name, dealer_id):
     if request.method == 'POST':
         form = RentForm(request.POST)
         if form.is_valid():
-            form.save()
-            # Redirige a alguna página de éxito o haz lo que necesites después de guardar el formulario
+            # Modificar el formulario antes de guardarlo para establecer los valores predeterminados
+            rent = form.save(commit=False)
+            rent.NIF = dealer.NIF_bussines
+            rent.car_rented = car
+            rent.id_authorisedDealer = dealer
+            rent.save()
             return redirect('homePage')
     else:
         # Completar automáticamente los campos del formulario con la información obtenida
@@ -76,8 +81,12 @@ def seleccio_cotxe(request, car_name, dealer_id):
             'car_rented': car,
             'id_authorisedDealer': dealer
         }
-
-        # Crear una instancia del formulario con los datos iniciales
         form = RentForm(initial=initial_data)
+        form.fields['NIF'].widget.attrs['readonly'] = True
+        form.fields['car_rented'].widget.attrs['readonly'] = True
+        form.fields['id_authorisedDealer'].widget.attrs['readonly'] = True
 
     return render(request, 'car_selection.html', {'car': car, 'dealer': dealer, 'form': form})
+
+
+
