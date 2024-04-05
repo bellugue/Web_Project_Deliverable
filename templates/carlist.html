@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block title %}
-
+    Cotxes disponibles
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <link rel="stylesheet" type="text/css" href="{% static 'carlist.css' %}">
+    <div class="car-container">
         <h1>Llista de cotxes disponibles</h1>
         <table>
             <thead>
@@ -17,6 +18,7 @@
                     <th>Marca</th>
                     <th>Quilometratge</th>
                     <th>Concessionari</th>
+                    <th>Alquilar</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,8 +30,9 @@
                         <td>{{ car.brand }}</td>
                         <td>{{ car.mileage }}</td>
                         <td>{{ car.AuthorisedDealer }}</td>
-                        <td><a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer%}">Seleccionar cotxe '{{ car.name }}'</a></td>
+                        <td class="button-cell"><a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer%}" class="button">Alquilar cotxe '{{ car.model }}'</a></td>
                     </tr>
+
                 {% endfor %}
             </tbody>
         </table>

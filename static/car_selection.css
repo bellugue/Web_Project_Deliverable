@@ -1,100 +1,76 @@
-body{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+h1{
+    margin-top: 750px;
+    margin-bottom: 10px;
+}
+.details-wrapper {
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    top: 0;
-    width: 100%;
+h2 {
+    color: #000000;
+    margin-top: 20px;
 }
 
-
-.car-details {
-    float: left; /* Alinea a la izquierda */
-    width: calc(50% - 10px); /* Toma la mitad del ancho del contenedor */
-    padding-right: 20px; /* Espacio a la derecha */
+.details-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
-/* Estilos para la información del concesionario */
-.concessionaire-info {
-    float: left; /* Alinea a la izquierda */
-    width: calc(50% - 10px); /* Toma la mitad del ancho del contenedor */
-}
-
-.car-details p {
-    margin: 10px 0; /* Espacio entre cada detalle */
-    font-size: 16px; /* Tamaño de fuente */
-}
-
-
-.container {
-    max-width: 600px; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    padding: 20px; /* Espacio alrededor del contenedor */
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-}/* Estilo del contenedor del formulario */
-
-/* Estilo del contenedor del formulario */
-.form-container {
-    width: 400px; /* Ancho del contenedor */
-    margin: 50px auto 100px auto; /* Centrar el contenedor vertical y horizontalmente, con margen grande en la parte inferior */
-    padding: 30px; /* Espacio interior del contenedor */
-    border: 2px solid #000000; /* Borde del contenedor */
-    border-radius: 10px; /* Bordes redondeados */
-    background-color: #f9f9f9; /* Color de fondo del contenedor */
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Sombra suave */
-}
-
-/* Estilo del formulario */
-.form-container form {
+.details-content {
     display: flex;
-    flex-direction: column; /* Disposición en columnas */
+    flex-direction: column;
 }
 
-/* Estilo de los campos del formulario */
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container button {
-    margin-bottom: 20px; /* Espacio entre los campos */
-    padding: 15px; /* Espacio interior del campo */
-    border: 1px solid #ccc; /* Borde del campo */
-    border-radius: 5px; /* Bordes redondeados del campo */
-    font-size: 16px; /* Tamaño de fuente */
+.details-content p {
+    font-weight: 400;
+    margin: 0;
 }
 
-/* Estilo del botón de envío */
-.form-container button {
-    background-color: #007bff; /* Color de fondo del botón */
-    color: #fff; /* Color del texto del botón */
-    cursor: pointer; /* Cambiar el cursor al pasar por encima */
-    font-size: 18px; /* Tamaño de fuente */
-    border: none; /* Eliminar borde */
+.details-content strong {
+    font-weight: bold;
 }
 
-/* Estilo del botón de envío al pasar el ratón */
-.form-container button:hover {
-    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+
+.form-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    margin: 10px auto;
 }
 
-/* Estilo del texto dentro del formulario */
-.form-container p {
-    text-align: center; /* Centrar texto */
-    margin-bottom: 20px; /* Espacio grande en la parte inferior del texto */
-    font-size: 18px; /* Tamaño de fuente */
+.auth-dealer-info {
+    margin-top: 40px;
+}
+
+
+/* Estilos para el formulario */
+form {
+    margin-top: 20px;
+}
+
+form p {
+    margin-bottom: 10px;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
 }

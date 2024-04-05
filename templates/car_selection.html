@@ -1,36 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'car_selection.css' %}">
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <header>
-       <h1>Car Renting</h1> 
-    </header>
-    <a href="#" onclick="history.back();">Tornar a la pàgina anterior</a>
-    <div class="container">
-        <div class="car-details">
-            <h1>Detalle del Coche</h1>
-            <p>Nombre: {{ car.name }}</p>
-            <p>Matrícula: {{ car.licensePlate }}</p>
-            <p>Modelo: {{ car.model }}</p>
-            <p>Marca: {{ car.brand }}</p>
-            <p>Kilometraje: {{ car.mileage }}</p>
-        </div>
-        <div class="auth-dealer-info">
-            <h1>Informació del concessionari</h1>
-            <p><strong>ID:</strong> {{ dealer.id_authorisedDealer }}</p>
-            <p><strong>Location:</strong> {{ dealer.location }}</p>
-            <p><strong>Schedule:</strong> {{ dealer.schedule }}</p>
-            <!-- Si deseas mostrar también el NIF del negocio -->
-            <p><strong>Business NIF:</strong> {{ dealer.NIF_bussines.NIF }}</p>
-        </div>
-        <div class="rent-info"></div>
+{% extends 'prova2.html' %}
+{% load static %}
 
-    </div>    
+{% block title %}
+    Alquilar cotxe
+{% endblock %}
+
+
+
+
+{% block content %}
+        <link rel="stylesheet" type="text/css" href="{% static 'car_selection.css' %}">
+        <h1>Alquilar '{{ car.name }}'.</h1>
+        <div class="details-wrapper">
+            <div class="details-container">
+                <h2>Detalle del Coche</h2>
+                <div class="details-content">
+                    <p><strong>Nombre:</strong> {{ car.name }}</p>
+                    <p><strong>Matrícula: </strong>{{ car.licensePlate }}</p>
+                    <p><strong>Modelo: </strong> {{ car.model }}</p>
+                    <p><strong>Marca: </strong> {{ car.brand }}</p>
+                    <p><strong>Kilometraje: </strong> {{ car.mileage }}</p>
+                </div>
+            </div>
+            <div class="details-container">
+                <h2>Informació del concessionari</h2>
+                <div class="details-content">
+                    <p><strong>Business name:</strong> {{ dealer.NIF_bussines.name }}</p>
+                    <p><strong>ID:</strong> {{ dealer.id_authorisedDealer }}</p>
+                    <p><strong>Location:</strong> {{ dealer.location }}</p>
+                    <p><strong>Schedule:</strong> {{ dealer.schedule }}</p>
+                </div>
+            </div>
+        </div>
+
+
        <div class="form-container">
             <form method="post">
                 {% csrf_token %}
@@ -38,9 +41,4 @@
                 <button type="submit">Reservar</button>
             </form>
         </div>
-    <footer>
-        <p>© 2024 My Company. All rights reserved.</p>
-        <p>Contact: info@mycompany.com | Phone: 123-456-7890</p>
-    </footer>
-</body>
-</html>
+{% endblock %}

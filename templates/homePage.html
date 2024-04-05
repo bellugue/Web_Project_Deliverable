@@ -6,12 +6,20 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>Llistat de concessionaris</h1>
-        <ul>
-            {% for dealer in authorisedDealers %}
-                <li><a href="{% url 'carList' pk=dealer.pk %}">{{ dealer.id_authorisedDealer }} - {{ dealer.location }} - {{ dealer.schedule }}</a></li>
-            {% endfor %}
-        </ul>
+    <link rel="stylesheet" type="text/css" href="{% static 'homePage.css' %}">
+    <h1>Llistat de concessionaris</h1>
+    <div class="dealer-card-container">
+        {% for dealer in authorisedDealers %}
+            <ul class="dealer-card">
+                <h3> {{ dealer.NIF_bussines.name }}</h3>
+                <li> {{ dealer.NIF_bussines.location }}</li>
+                <h3> Info concessionari: </h3>
+                <li>Id: {{ dealer.id_authorisedDealer }}</li>
+                <li>Ubicació: {{ dealer.location }}</li>
+                <li>Horari: {{ dealer.schedule }}</li>
+                <li><a href="{% url 'carList' pk=dealer.pk %}" class="button">Consultar cotxes</a></li>
+            </ul>
+        {% endfor %}
     </div>
+
 {% endblock %}
