@@ -1,1 +1,17 @@
 {% extends 'prova2.html' %}
+{% load static %}
+
+{% block title %}
+    HomePage-Llista de concessionaris.
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Llistat de concessionaris</h1>
+        <ul>
+            {% for dealer in authorisedDealers %}
+                <li><a href="{% url 'carList' pk=dealer.pk %}">{{ dealer.id_authorisedDealer }} - {{ dealer.location }} - {{ dealer.schedule }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

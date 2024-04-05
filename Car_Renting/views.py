@@ -5,7 +5,7 @@ from pyexpat.errors import messages
 from django.contrib.auth import forms
 
 from Car_Renting.forms import RentForm
-from Car_Renting.models import Car, AuthorisedDealer
+from Car_Renting.models import Car, AuthorisedDealer, Rent
 
 
 
