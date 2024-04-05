@@ -22,8 +22,22 @@
         </div>
         <div class="auth-dealer-info">
             <h1>Informació del concessionari</h1>
+            <p><strong>ID:</strong> {{ dealer.id_authorisedDealer }}</p>
+            <p><strong>Location:</strong> {{ dealer.location }}</p>
+            <p><strong>Schedule:</strong> {{ dealer.schedule }}</p>
+            <!-- Si deseas mostrar también el NIF del negocio -->
+            <p><strong>Business NIF:</strong> {{ dealer.NIF_bussines.NIF }}</p>
         </div>
+        <div class="rent-info"></div>
+
     </div>    
+       <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Reservar</button>
+            </form>
+        </div>
     <footer>
         <p>© 2024 My Company. All rights reserved.</p>
         <p>Contact: info@mycompany.com | Phone: 123-456-7890</p>

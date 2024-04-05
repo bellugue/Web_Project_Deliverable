@@ -11,13 +11,16 @@ class BusinessAdmin(admin.ModelAdmin):
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    list_display = ['name', 'licensePlate', 'model', 'brand', 'mileage']
+    list_display = ['name', 'AuthorisedDealer', 'licensePlate', 'model', 'mileage']
+    list_filter = ['AuthorisedDealer']
+    search_fields = ['name', 'licensePlate', 'model']
 
 @admin.register(AuthorisedDealer)
 class AuthorisedDealerAdmin(admin.ModelAdmin):
-    list_display = ['id_authorisedDealer', 'location', 'schedule']
+    list_display = ['id_authorisedDealer', 'NIF_bussines', 'location', 'schedule']
 
 @admin.register(Rent)
 class RentAdmin(admin.ModelAdmin):
-    list_display = ['NIF', 'licensePlate', 'id_authorisedDealer', 'availability', 'price']
-    list_filter = ['NIF', 'licensePlate', 'id_authorisedDealer']
+    list_display = ['car_rented', 'id_authorisedDealer']
+    list_filter = ['id_authorisedDealer']
+    search_fields = ['car_rented__name']

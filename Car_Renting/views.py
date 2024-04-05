@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 from django.contrib.auth.models import User
 from pyexpat.errors import messages
 from django.contrib.auth import forms
-from Car_Renting.models import Car, AuthorisedDealer
 
+from Car_Renting.forms import RentForm
+from Car_Renting.models import Car, AuthorisedDealer, Rent
 
 
 
@@ -36,9 +37,12 @@ def register(request):
     context = {'form': form}
     return render(request, 'registration/register.html', context)  # Ensure this line is present
 
-def list_cars(request):
-    cars = Car.objects.all()
-    return render(request, 'carlist.html', {'cars' : cars})
+def list_cars(request, pk=None):
+    if pk is not None:
+        cars = Car.objects.filter(AuthorisedDealer=pk)
+    else:
+        cars = Car.objects.all()
+    return render(request, 'carlist.html', {'cars': cars})
 
 def reset_password(request):
     if request.method == 'POST':
@@ -52,6 +56,25 @@ def reset_password(request):
     context = {'form': form}
     return render(request, 'passwordReset.html', context)
 
-def seleccio_cotxe(request, name):
-    car = Car.objects.get(name=name)
-    return render(request, 'car_selection.html', {'car': car})
+def seleccio_cotxe(request, car_name, dealer_id):
+    car = get_object_or_404(Car, name=car_name)
+    dealer = get_object_or_404(AuthorisedDealer, id_authorisedDealer=dealer_id)
+
+    if request.method == 'POST':
+        form = RentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Redirige a alguna página de éxito o haz lo que necesites después de guardar el formulario
+            return redirect('homePage')
+    else:
+        # Completar automáticamente los campos del formulario con la información obtenida
+        initial_data = {
+            'NIF': dealer.NIF_bussines,
+            'car_rented': car,
+            'id_authorisedDealer': dealer
+        }
+
+        # Crear una instancia del formulario con los datos iniciales
+        form = RentForm(initial=initial_data)
+
+    return render(request, 'car_selection.html', {'car': car, 'dealer': dealer, 'form': form})

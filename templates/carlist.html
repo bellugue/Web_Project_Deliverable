@@ -21,6 +21,7 @@
             <th>Model</th>
             <th>Marca</th>
             <th>Quilometratge</th>
+            <th>Concessionari</th>
         </tr>
     </thead>
     <tbody>
@@ -31,7 +32,8 @@
                 <td>{{ car.model }}</td>
                 <td>{{ car.brand }}</td>
                 <td>{{ car.mileage }}</td>
-                <td><a href="{% url 'seleccio_cotxe' car.name %}">Seleccionar cotxe '{{ car.name }}'</a></td>
+                <td>{{ car.AuthorisedDealer }}</td>
+                <td><a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer%}">Seleccionar cotxe '{{ car.name }}'</a></td>
             </tr>
         {% endfor %}
     </tbody>
