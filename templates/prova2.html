@@ -5,45 +5,39 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - Responsive Mega Menu and Dropdown Menu using only HTML &amp; CSS</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
 
+<body>
 <!-- Barra de navegació -->
 <nav>
   <div class="wrapper">
-      <div class="logo"><a href="#">CarRentingUdL</a></div>
+      <div class="logo"><a href="{% url 'homePage' %}">CarRentingUdL</a></div>
       <input type="radio" name="slider" id="menu-btn">
       <input type="radio" name="slider" id="close-btn">
       {% if not user.is_authenticated %}
       <ul class="nav-links">
           <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-          <li><a href="#">Home</a></li>
+          <li><a href="{% url 'homePage' %}">Home</a></li>
           <li><a href="#">Sobre nosaltres</a></li>
           <li>
               <a href="#" class="desktop-item">Usuari</a>
               <input type="checkbox" id="showDrop">
               <label for="showDrop" class="mobile-item">Dropdown Menu</label>
               <ul class="drop-menu">
-                  <li><a href="#">Drop menu 1</a></li>
-                  <li><a href="#">Drop menu 2</a></li>
-                  <li><a href="#">Drop menu 3</a></li>
-                  <li><a href="#">Drop menu 4</a></li>
+                  <li><a href="{% url 'login' %}">Iniciar Sessió</a></li>
+                  <li><a href="{% url 'register' %}">Registrar-se</a></li>
               </ul>
           </li>
-          <li>
-              <a href="#" class="desktop-item">Mega Menu</a>
-          </li>
-      <li><a href="#">Feedback</a></li>
+          <li><a href="#">Contacte</a></li>
       </ul>
       <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
 
       {% elif user.is_authenticated %}
       <ul class="nav-links">
           <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-          <li><a href="#">Home</a></li>
+          <li><a href="{% url 'homePage' %}">Home</a></li>
           <li><a href="#">Sobre nosaltres</a></li>
           <li>
               <a href="#" class="desktop-item">Usuari</a>
@@ -53,10 +47,7 @@
                   <li><a href="#">Tancar sessió</a></li>
               </ul>
           </li>
-          <li>
-              <a href="#" class="desktop-item">Mega Menu</a>
-          </li>
-      <li><a href="#">Feedback</a></li>
+          <li><a href="#">Contacte</a></li>
       </ul>
       <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
 
@@ -70,44 +61,40 @@
     {% endblock %}
 </div>
 
-
-
 <!-- Footer -->
-<footer class="footer">
-    <div class="waves">
-      <div class="wave" id="wave1"></div>
-      <div class="wave" id="wave2"></div>
-      <div class="wave" id="wave3"></div>
-      <div class="wave" id="wave4"></div>
-    </div>
-    <ul class="social-icon">
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-twitter"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a></li>
-    </ul>
-    <ul class="menu">
-      <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">About</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+    <footer class="footer">
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social-icon">
+          <li class="social-icon__item"><a class="social-icon__link" href="#">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="#">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="#">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="#">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+        </ul>
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="{% url 'homePage' %}">Home</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Sobre nosaltres</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Contacte</a></li>
 
-    </ul>
-    <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
-</footer>
+        </ul>
+        <p>&copy;2024 CarRentingUdL | All Rights Reserved</p>
+    </footer>
 
-<!-- Scripts -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Scripts -->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>

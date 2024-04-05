@@ -3,6 +3,7 @@ from django.views.generic import ListView
 from django.contrib.auth.models import User
 from pyexpat.errors import messages
 from django.contrib.auth import forms
+from django.contrib.auth.decorators import login_required
 
 from Car_Renting.forms import RentForm
 from Car_Renting.models import Car, AuthorisedDealer, Rent
@@ -37,6 +38,7 @@ def register(request):
     context = {'form': form}
     return render(request, 'registration/register.html', context)  # Ensure this line is present
 
+@login_required(login_url='login')
 def list_cars(request, pk=None):
     if pk is not None:
         cars = Car.objects.filter(AuthorisedDealer=pk)
@@ -56,6 +58,7 @@ def reset_password(request):
     context = {'form': form}
     return render(request, 'passwordReset.html', context)
 
+@login_required(login_url='login')
 def seleccio_cotxe(request, car_name, dealer_id):
     car = get_object_or_404(Car, name=car_name)
     dealer = get_object_or_404(AuthorisedDealer, id_authorisedDealer=dealer_id)
