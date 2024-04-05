@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'homePage.css' %}">
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+    <header>
+        <div class="header-links">
+            <!--<a href="/login">Login</a>-->
+            <li><a href="{% url 'login' %}" class="{% if request.path == '/login' %}active{% endif %}"> Login </a></li>
+        </div>
+        <div class="header-links">
+            <!--<a href="/register">Register</a> -->
+             <li><a href="{% url 'register' %}">Register</a></li>
+        </div>
+        <h1>Car Renting</h1>
+    </header>
+
+    <div class="container">
+        <p>Please select an option:</p>
+        <a href="/carlist/" class="btn">Choose Car</a>
+    </div>
+
+    <div class="container">
+        <h1>Llistat de concessionaris</h1>
+        <ul>
+            {% for dealer in authorisedDealers %}
+                <li><a href="{% url 'carList' pk=dealer.pk %}">{{ dealer.id_authorisedDealer }} - {{ dealer.location }} - {{ dealer.schedule }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2024 My Company. All rights reserved.</p>
+        <p>Contact: info@mycompany.com | Phone: 123-456-7890</p>
+    </footer>
+</body>
+</html>
