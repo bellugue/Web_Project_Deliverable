@@ -1,47 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'carlist.css' %}">
-    <meta charset="UTF-8">
-    <title>Car List</title>
-</head>
-<body>
-    <header>
-       <h1>Car Renting</h1> 
-    </header>
-    <a href="#" onclick="history.back();">Tornar a la pàgina anterior</a>
+{% extends 'prova2.html' %}
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
     <div class="container">
         <h1>Llista de cotxes disponibles</h1>
         <table>
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Matrícula</th>
-            <th>Model</th>
-            <th>Marca</th>
-            <th>Quilometratge</th>
-            <th>Concessionari</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for car in cars %}
-            <tr>
-                <td>{{ car.name }}</td>
-                <td>{{ car.licensePlate }}</td>
-                <td>{{ car.model }}</td>
-                <td>{{ car.brand }}</td>
-                <td>{{ car.mileage }}</td>
-                <td>{{ car.AuthorisedDealer }}</td>
-                <td><a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer%}">Seleccionar cotxe '{{ car.name }}'</a></td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Matrícula</th>
+                    <th>Model</th>
+                    <th>Marca</th>
+                    <th>Quilometratge</th>
+                    <th>Concessionari</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                    <tr>
+                        <td>{{ car.name }}</td>
+                        <td>{{ car.licensePlate }}</td>
+                        <td>{{ car.model }}</td>
+                        <td>{{ car.brand }}</td>
+                        <td>{{ car.mileage }}</td>
+                        <td>{{ car.AuthorisedDealer }}</td>
+                        <td><a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer%}">Seleccionar cotxe '{{ car.name }}'</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-    <footer>
-        <p>© 2024 My Company. All rights reserved.</p>
-        <p>Contact: info@mycompany.com | Phone: 123-456-7890</p>
-    </footer>
-</body>
-</html>
+{% endblock %}
