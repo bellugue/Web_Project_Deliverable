@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Coche - Alquiler de Coches</title>
-    <!-- Carga de archivos estáticos en Django -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'car_selection.css' %}">
     <style>
-        /* Estilos adicionales pueden ser añadidos aquí */
     </style>
 </head>
 <body>
@@ -16,11 +14,10 @@
         <h1>Alquiler de Coches</h1>
     </header>
 
-    <!-- Enlace para volver a la página anterior -->
+    
     <a href="#" onclick="history.back();">Volver a la página anterior</a>
 
     <div class="container">
-        <!-- Detalles del coche seleccionado -->
         <section class="car-details">
             <h2>Detalle del Coche</h2>
             <img src="https://neomotor.epe.es/binrepository/990x619/0c31/990d557/none/2594535/VGRS/seat-arona-2021-031-hq_285-48846659_20230613130557.jpg" alt="Imagen del Seat Arona 2021">
@@ -32,8 +29,7 @@
                 <li><strong>Kilometraje:</strong> {{ car.mileage }}</li>
             </ul>
         </section>
-
-        <!-- Información del concesionario -->
+        
         <section class="auth-dealer-info">
             <h2>Información del Concesionario</h2>
             <ul>
@@ -44,8 +40,7 @@
             </ul>
         </section>
     </div>
-
-    <!-- Formulario de reserva -->
+    
     <div class="form-container">
         <form method="post">
             {% csrf_token %}
