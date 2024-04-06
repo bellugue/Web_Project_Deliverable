@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from pyexpat.errors import messages
 from django.contrib.auth import forms
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.forms import UserCreationForm
 from Car_Renting.forms import RentForm
 from Car_Renting.models import Car, AuthorisedDealer, Rent
 
@@ -26,17 +26,20 @@ def login(request):
     context = {'form': form}
     return render(request,'registration/login.html', context)
 def register(request):
-    if request.method == 'POST':
-        form = forms.UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)  # Log in the newly registered user
-            return redirect('homePage')  # Redirect to your desired page after registration
-    else:
-        form = forms.UserCreationForm()
+    if request.method == 'GET':
+        return render(request,'registration/register.html', {"from": UserCreationForm})
 
-    context = {'form': form}
-    return render(request, 'registration/register.html', context)  # Ensure this line is present
+    else :
+        if request.POST["password"] == request.POST["password2"]:
+            try:
+                user = User.objects.create_user(request.POST["username"], password=request.POST["password"])
+                user.save()
+                login(request, user);
+                return redirect('');
+            except:
+                return render(request, 'registration/register.html', {"form": UserCreationForm, "error": "Username already exists."})
+
+    return render(request, 'registration/register.html', {"form": UserCreationForm, "error": "Passwords did not match."})
 
 @login_required(login_url='login')
 def list_cars(request, pk=None):
