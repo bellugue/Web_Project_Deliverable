@@ -27,6 +27,7 @@ class Car(models.Model):
     model = models.CharField(max_length=100, null=True)
     brand = models.CharField(max_length=100, null=True)
     mileage = models.IntegerField(default=0)
+    is_reserved = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
