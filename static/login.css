@@ -1,25 +1,22 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    height: 100vh;
+h1 {
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-
-
-form {
-    margin: 0 auto; /* Centrar horizontalmente */
-    margin-top: 50px; /* Espacio superior para separar del borde superior */
-    background-color: #fff;
-    max-width: 300px;
+.inici-container {
+    max-width: 400px;
+    margin: 50px auto;
     padding: 20px;
+    background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /*/ Agregado: Separación entre el formulario y la lista de libros /*/
 }
+
+form {
+    /* Mantén tu estilo actual */
+    text-align: center;
+}
+
 
 form input[type="text"],
 form input[type="password"],
@@ -46,31 +43,4 @@ form input[type="submit"]:hover {
 .error-message {
     color: #ff0000;
     margin-top: 10px;
-}
-
-.book-list {
-    background-color: #fff;
-    max-width: 300px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.book-list h2 {
-    text-align: center;
-}
-
-.book-list ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.book-list li {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-}
-
-.book-list li:last-child {
-    border-bottom: none;
 }

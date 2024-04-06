@@ -3,7 +3,6 @@ h1 {
 }
 
 .car-container {
-    margin-top: 20px;
     text-align: center; /* Centrar la tabla */
 }
 
@@ -28,22 +27,12 @@ tr:hover {
     background-color: #f5f5f5;
 }
 
-a {
-    display: inline-block; /* Convertir el enlace en un bloque */
-    padding: 8px 16px;
-    text-decoration: none;
-    color: #007bff;
-}
-
-a:hover {
-    text-decoration: underline;
-}
 
 .button-cell {
     text-align: left; /* Alinear los botones a la izquierda */
 }
 
-.button {
+.button-llogar {
     text-align: center;
     display: inline-block;
     padding: 8px 16px;
@@ -59,6 +48,7 @@ a:hover {
     font-size: 13px;
 }
 
-.button:hover {
+.button-llogar:hover {
     background-color: #0056b3;
+    text-decoration: underline;
 }
