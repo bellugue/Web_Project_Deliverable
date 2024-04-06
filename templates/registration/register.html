@@ -1,22 +1,28 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'register.css' %}">
     <title>Registre</title>
     <body>
-    <h1>Enter the data</h1>
-    <form action="{% url 'register' %}" method="post">
-        {% csrf_token %}
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="email">Gmail:</label><br>
-        <input type="email" id="email" name="email"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br>
-        <input type="submit" value="Register">
-    </form>
-</body>
+        <div class="container">
+            <h1>Register</h1>
+            <form action="{% url 'register' %}" method="post">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                {% csrf_token %}
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password"><br>
+                {% csrf_token %}
+                <label for="password2">Repeat password:</label><br>
+                <input type="password" id="password2" name="password2"><br>
+                 <button type="submit">Register</button>
+            </form>
+        </div>
+    </body>
 </head>
 <body>
 

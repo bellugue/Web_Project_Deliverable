@@ -1,47 +1,37 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+h1{
+    margin-top: 380px;
+}
+.dealer-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-header {
-    background-color: #333;
+.dealer-card {
+    list-style-type: none;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: calc(33.33% - 20px);
+    max-width: 300px; /* Ancho máximo para evitar que las tarjetas se estiren demasiado */
+}
+
+li{
+    font-weight: 400;
+}
+.button {
+    display: inline-block;
+    padding: 3px 12px;
+    background-color: #007bff;
     color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
-.header-links {
-    float: left;
-    padding: 10px;
-}
-
-.concessionaires-list {
-    margin-top: 20px;
-    list-style: none;
-    padding: 0;
-}
-
-.concessionaires-list li {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.button:hover {
+    background-color: #0056b3;
 }

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from pyexpat.errors import messages
 from django.contrib.auth import forms
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.forms import UserCreationForm
 from Car_Renting.forms import RentForm
 from Car_Renting.models import Car, AuthorisedDealer, Rent
 
@@ -26,17 +26,20 @@ def login(request):
     context = {'form': form}
     return render(request,'registration/login.html', context)
 def register(request):
-    if request.method == 'POST':
-        form = forms.UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)  # Log in the newly registered user
-            return redirect('homePage')  # Redirect to your desired page after registration
-    else:
-        form = forms.UserCreationForm()
+    if request.method == 'GET':
+        return render(request,'registration/register.html', {"from": UserCreationForm})
 
-    context = {'form': form}
-    return render(request, 'registration/register.html', context)  # Ensure this line is present
+    else :
+        if request.POST["password"] == request.POST["password2"]:
+            try:
+                user = User.objects.create_user(request.POST["username"], password=request.POST["password"])
+                user.save()
+                login(request, user);
+                return redirect('');
+            except:
+                return render(request, 'registration/register.html', {"form": UserCreationForm, "error": "Username already exists."})
+
+    return render(request, 'registration/register.html', {"form": UserCreationForm, "error": "Passwords did not match."})
 
 @login_required(login_url='login')
 def list_cars(request, pk=None):
@@ -58,6 +61,7 @@ def reset_password(request):
     context = {'form': form}
     return render(request, 'passwordReset.html', context)
 
+
 @login_required(login_url='login')
 def seleccio_cotxe(request, car_name, dealer_id):
     car = get_object_or_404(Car, name=car_name)
@@ -66,8 +70,12 @@ def seleccio_cotxe(request, car_name, dealer_id):
     if request.method == 'POST':
         form = RentForm(request.POST)
         if form.is_valid():
-            form.save()
-            # Redirige a alguna página de éxito o haz lo que necesites después de guardar el formulario
+            # Modificar el formulario antes de guardarlo para establecer los valores predeterminados
+            rent = form.save(commit=False)
+            rent.NIF = dealer.NIF_bussines
+            rent.car_rented = car
+            rent.id_authorisedDealer = dealer
+            rent.save()
             return redirect('homePage')
     else:
         # Completar automáticamente los campos del formulario con la información obtenida
@@ -76,8 +84,12 @@ def seleccio_cotxe(request, car_name, dealer_id):
             'car_rented': car,
             'id_authorisedDealer': dealer
         }
-
-        # Crear una instancia del formulario con los datos iniciales
         form = RentForm(initial=initial_data)
+        form.fields['NIF'].widget.attrs['readonly'] = True
+        form.fields['car_rented'].widget.attrs['readonly'] = True
+        form.fields['id_authorisedDealer'].widget.attrs['readonly'] = True
 
     return render(request, 'car_selection.html', {'car': car, 'dealer': dealer, 'form': form})
+
+
+
