@@ -32,7 +32,7 @@ tr:hover {
     text-align: left; /* Alinear los botones a la izquierda */
 }
 
-.button-llogar {
+.button-cell {
     text-align: center;
     display: inline-block;
     padding: 8px 16px;
@@ -48,7 +48,15 @@ tr:hover {
     font-size: 13px;
 }
 
-.button-llogar:hover {
+.button-cell:hover {
     background-color: #0056b3;
     text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+}
+
+.buscador-dies{
+    margin-top: 20px;
 }
