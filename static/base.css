@@ -7,10 +7,11 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
   display: flex;
-  background: #ffffff;
-  justify-content: flex-end;
-  align-items: flex-end;
+  flex-direction: column;
   min-height: 100vh;
 }
 
@@ -268,6 +269,7 @@ nav input{
   display: none;
 }
 
+/* Funciona amb el footer fix
 .body-text{
   position: absolute;
   top: 10%;
@@ -276,16 +278,18 @@ nav input{
   width: 100%;
   text-align: center;
   padding: 0 30px;
+  margin-bottom: 30px;
 }
+
 .body-text div{
   font-size: 20px;
   font-weight: 600;
 }
 
 .footer {
-  position: relative;
+  /*background: #3586ff;*//*
+  position: fixed;
   width: 100%;
-  /*background: #3586ff;*/
   background: #00060e;
   min-height: 100px;
   padding: 20px 50px;
@@ -293,6 +297,27 @@ nav input{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}*/
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+}
+
+.body-text {
+  padding: 20px;
+  overflow-y: auto; /* Permite scroll si el contenido es largo */
+  margin-bottom: 100px; /* Espacio debajo del contenido para el footer */
+}
+
+.footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #00060e;
+  padding: 20px 50px;
 }
 
 .social-icon,
@@ -341,4 +366,5 @@ nav input{
   margin: 15px 0 10px 0;
   font-size: 1rem;
   font-weight: 300;
+  text-align: center;
 }
