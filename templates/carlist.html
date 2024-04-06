@@ -6,25 +6,30 @@
 {% endblock %}
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'carlist.css' %}">
-    <div class="buscador-dies"><<<
-        <form method="post" action="{% url 'carList' %}">
-            {% csrf_token %}
-            <label for="fecha_entrada">Fecha de entrada:</label>
-            <input type="date" id="fecha_entrada" name="fecha_entrada">
-            <label for="fecha_salida">Fecha de salida:</label>
-            <input type="date" id="fecha_salida" name="fecha_salida">
-            <button type="submit">Buscar</button>
-        </form>
-    </div>
 
-    {% if error_message %}
-        <div class="error-message">
-            {{ error_message }}
-        </div>
-    {% endif %}
 
     <div class="car-container">
-        <h1>Llista de cotxes disponibles</h1>
+        {% if fecha_entrada and fecha_salida %}
+            <h1>Llista de cotxes disponibles {{ fecha_entrada }} - {{ fecha_salida }}</h1>
+        {% else %}
+            <h1>Llista de cotxes disponibles </h1>
+        {% endif %}
+            <div class="buscador-dies">
+                 <form method="post" action="/carlist/{{ pk_authorised_dealer }}/">
+                    {% csrf_token %}
+                    <label for="fecha_entrada">Fecha de entrada:</label>
+                    <input type="date" id="fecha_entrada" name="fecha_entrada">
+                    <label for="fecha_salida">Fecha de salida:</label>
+                    <input type="date" id="fecha_salida" name="fecha_salida">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+        
+            {% if error_message %}
+                <div class="error-message">
+                    {{ error_message }}
+                </div>
+            {% endif %}
         <table>
             <thead>
                 <tr>
@@ -37,26 +42,27 @@
                     <th>Alquilar</th>
                 </tr>
             </thead>
-            {% if selected_date and selected_time %}
+            {% if fecha_entrada and fecha_salida %}
                 <tbody>
-                    {% for car in cars %}
+                    {% if not cars %}
                         <tr>
-                            <td>{{ car.name }}</td>
-                            <td>{{ car.licensePlate }}</td>
-                            <td>{{ car.model }}</td>
-                            <td>{{ car.brand }}</td>
-                            <td>{{ car.mileage }}</td>
-                            <td>{{ car.AuthorisedDealer }}</td>
-                            <td>
-                                {% if car.is_reserved %}
-                                    No disponible
-                                {% else %}
-                                    Disponible
-                                {% endif %}
-                            </td>
-                            <td class="button-cell"><a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer%}" class="button">Alquilar cotxe '{{ car.model }}'</a></td>
+                            <td colspan="7" class="no-cars">No hay coches disponibles en este concesionario durante ese período de días. Lo sentimos.</td>
                         </tr>
-                    {% endfor %}
+                    {% else %}
+                        {% for car in cars %}
+                            <tr>
+                                <td>{{ car.name }}</td>
+                                <td>{{ car.licensePlate }}</td>
+                                <td>{{ car.model }}</td>
+                                <td>{{ car.brand }}</td>
+                                <td>{{ car.mileage }}</td>
+                                <td>{{ car.AuthorisedDealer }}</td>
+                                <td class="button-cell">
+                                    <a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer %}?fecha_entrada={{ fecha_entrada }}&fecha_salida={{ fecha_salida }}" class="button" style="color: white; text-decoration: none;">Alquilar cotxe '{{ car.model }}'</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
                 </tbody>
             {% endif %}
         </table>
