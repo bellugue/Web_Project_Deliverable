@@ -85,11 +85,20 @@ def seleccio_cotxe(request, car_name, dealer_id):
             'id_authorisedDealer': dealer
         }
         form = RentForm(initial=initial_data)
-        form.fields['NIF'].widget.attrs['readonly'] = True
-        form.fields['car_rented'].widget.attrs['readonly'] = True
-        form.fields['id_authorisedDealer'].widget.attrs['readonly'] = True
+        # Establecer campos como solo lectura
+        form.fields['NIF'].disabled = True
+        form.fields['car_rented'].disabled = True
+        form.fields['id_authorisedDealer'].disabled = True
 
     return render(request, 'car_selection.html', {'car': car, 'dealer': dealer, 'form': form})
 
 
+def about_us(request):
+    return render(request, 'about_us.html')
 
+def contact(request):
+    return render(request, 'contact.html')
+
+def logout(request):
+    logout(request)
+    return redirect('homePage')
