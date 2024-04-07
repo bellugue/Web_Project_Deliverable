@@ -2,7 +2,7 @@
 <p align="center">
   <p align="center">
     <BR>
-  Web Project assignment 2022/2023 <BR>
+  Web Project assignment 2023/2024 <BR>
 Universtat de Lleida
 </p>
 
