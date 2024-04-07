@@ -1,5 +1,6 @@
 h1{
     text-align: center;
+    margin-bottom: 20px;
 }
 .details-wrapper {
     max-width: 800px;
@@ -12,6 +13,10 @@ h1{
 h2 {
     color: #000000;
     margin-top: 20px;
+}
+
+.h2-title-form{
+    text-align: center;
 }
 
 .details-container {
@@ -53,6 +58,7 @@ h2 {
 /* Estilos para el formulario */
 form {
     margin-top: 20px;
+    text-align: center;
 }
 
 form p {
@@ -68,6 +74,8 @@ button[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 button[type="submit"]:hover {

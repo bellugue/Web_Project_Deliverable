@@ -10,3 +10,11 @@ class RentForm(forms.ModelForm):
             'fecha_entrada': forms.DateInput(attrs={'type': 'date'}),
             'fecha_salida': forms.DateInput(attrs={'type': 'date'}),
         }
+
+class DateForm(forms.Form):
+    fecha_entrada = forms.DateField(label='Fecha de entrada')
+    fecha_salida = forms.DateField(label='Fecha de salida')
+    widgets = {
+        'fecha_entrada': forms.DateInput(attrs={'type': 'date'}),
+        'fecha_salida': forms.DateInput(attrs={'type': 'date'}),
+    }
