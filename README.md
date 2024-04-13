@@ -16,6 +16,13 @@ Developers
 - Eloi Vergé Ponsarnau - [elvepo029](https://github.com/elvepo029)
 - Joel Sambola Farran -
 
+Implementation
+-------------
+- [x] Allow users to register to the website
+- [x] Allow users that have an account to sign-up
+- [x] Allow users to find a specific car in a selected authorised dealer
+- [x] Allow registered users to rent a car for a time
+
 Usage
 ---------
 
