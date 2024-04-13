@@ -134,9 +134,6 @@ def seleccio_cotxe(request, car_name, dealer_id):
         }
         form = RentForm(initial=initial_data)
         # Make fields readonly
-        form.fields['NIF'].widget.attrs['readonly'] = True
-        form.fields['car_rented'].widget.attrs['readonly'] = True
-        form.fields['id_authorisedDealer'].widget.attrs['readonly'] = True
         form.fields['fecha_entrada'].widget.attrs['readonly'] = True
         form.fields['fecha_salida'].widget.attrs['readonly'] = True
 
