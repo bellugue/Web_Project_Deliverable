@@ -22,11 +22,11 @@ Usage
 **To Build the web:**
 1. Build:
 ```
-docker-compose up -d --build  
+docker build -t deliverable1
 ```
 2. Run:
 ```
-docker-compose up
+docker run -p 8000:8000 deliverable1
 ```
 3. Do makemigrations  & migrate in the container:
 
