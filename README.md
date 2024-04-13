@@ -41,4 +41,4 @@ python manage.py migrate
 ```
 python manage.py createsuperuser
 ```
-5. Go to [LocalHost](http://0.0.0.0/)
+5. Go to [LocalHost](http://localhost:8000/)
