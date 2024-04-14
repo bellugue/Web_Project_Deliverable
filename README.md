@@ -14,7 +14,7 @@ Developers
 - Ramon Segarra Riu - [bellugue](https://github.com/bellugue)
 - Theo Moreno Lomero - [MoreTheo](https://github.com/MoreTheo)
 - Eloi Vergé Ponsarnau - [elvepo029](https://github.com/elvepo029)
-- Joel Sambola Farran -
+- Joel Sambola Farran - [Joelsf10](https://github.com/Joelsf10)
 
 Implementation
 -------------
