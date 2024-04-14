@@ -29,7 +29,7 @@ Usage
 **To Build the web:**
 1. Build:
 ```
-docker build -t deliverable1
+docker build -t deliverable1 .
 ```
 2. Run:
 ```
