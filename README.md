@@ -27,16 +27,11 @@ Usage
 ---------
 
 **To Build the web:**
-1. Build:
+1. Build & Run project:
 ```
-docker build -t deliverable1 .
+docker-compose up
 ```
-2. Run:
-```
-docker run -p 8000:8000 deliverable1
-```
-3. Do makemigrations  & migrate in the container:
-
+2. Do makemigrations  & migrate in the container:
 &ensp; Use ```Docker ps``` in another Terminal to see running containers and ```docker exec -t -i container_id bash``` to open container's terminal.
 ```
 python manage.py makemigrations
@@ -44,8 +39,8 @@ python manage.py makemigrations
 ```
 python manage.py migrate
 ```
-4. Create superuser in the container:
+3. Create superuser in the container:
 ```
 python manage.py createsuperuser
 ```
-5. Go to [LocalHost](http://localhost:8000/)
+4. Go to [LocalHost](http://localhost:8000/)
