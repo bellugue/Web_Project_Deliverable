@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Business(models.Model):
-    NIF = models.CharField(max_length=100)
+    NIF = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
 
@@ -13,7 +13,7 @@ class Business(models.Model):
 
 class AuthorisedDealer(models.Model):
     NIF_bussines = models.ForeignKey(Business, on_delete=models.CASCADE, related_name='NIF_bussines')
-    id_authorisedDealer = models.CharField(max_length=100)
+    id_authorisedDealer = models.CharField(max_length=100, unique=True)
     location = models.CharField(max_length=100)
     schedule = models.CharField(max_length=100)
 
@@ -22,11 +22,11 @@ class AuthorisedDealer(models.Model):
 
 class Car(models.Model):
     AuthorisedDealer = models.ForeignKey(AuthorisedDealer, on_delete=models.CASCADE, related_name="AuthorisedDealer")
-    name = models.CharField(max_length=100)
-    licensePlate = models.CharField(max_length=100, null=True)
+    name = models.CharField(max_length=100, null=True)
+    licensePlate = models.CharField(max_length=100, null=True, unique=True)
     model = models.CharField(max_length=100, null=True)
     brand = models.CharField(max_length=100, null=True)
-    mileage = models.IntegerField(default=0)
+    mileage = models.IntegerField(default=0, null=True)
 
     def __str__(self):
         return self.name

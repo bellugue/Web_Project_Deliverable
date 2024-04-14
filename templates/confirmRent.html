@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Confirmar reserva
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'confirmRent.css' %}">
+    <div class="rent">
+        <h1>Reserva confirmada</h1>
+        <h2>Detalles de la reserva</h2>
+        <p>ID del autorizado: {{ rent.id_authorisedDealer }}</p>
+        <p>NIF del negocio: {{ rent.NIF }}</p>
+        <p>Coche alquilado: {{ rent.car_rented }}</p>
+        <p>Fecha de entrada: {{ rent.fecha_entrada }}</p>
+        <p>Fecha de salida: {{ rent.fecha_salida }}</p>
+        <p>Nombre del cliente: {{ rent.nombre_cliente }}</p>
+        <p>Teléfono del cliente: {{ rent.telefono_cliente }}</p>
+      <p>Correo electrónico del cliente: {{ rent.correo_cliente }}</p>
+    </div>
+{% endblock %}

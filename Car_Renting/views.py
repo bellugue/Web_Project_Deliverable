@@ -118,7 +118,9 @@ def seleccio_cotxe(request, car_name, dealer_id):
                 rent.fecha_entrada = fecha_entrada
                 rent.fecha_salida = fecha_salida
                 rent.save()
-                return redirect('homePage')
+
+                # Redireccionar a la homePage
+                return redirect('view_rent', rent_id=rent.pk)
         else:
             error_message = 'El cotxe seleccionat no esta disponible.'
             return redirect('seleccio_cotxe', car_name=car_name, dealer_id=dealer_id)
@@ -176,3 +178,9 @@ def get_available_cars(authorised_dealer_pk, fecha_entrada, fecha_salida):
     available_cars = all_cars.exclude(id__in=reserved_car_ids)
 
     return available_cars
+
+@login_required(login_url='login')
+def view_rent(request, rent_id):
+    # Obtener la reserva por su ID o mostrar un error 404 si no existe
+    rent = get_object_or_404(Rent, pk=rent_id)
+    return render(request, 'confirmRent.html', {'rent': rent})

@@ -1,0 +1,7 @@
+.rent {
+    width: 50%; /* Define el ancho del div */
+    margin: 0 auto; /* Centra el div horizontalmente */
+    text-align: center; /* Centra el texto dentro del div */
+    border: 1px solid #ccc; /* Añade un borde para mayor claridad */
+    padding: 20px; /* Añade espaciado interno al div */
+}

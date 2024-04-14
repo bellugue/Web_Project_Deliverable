@@ -7,13 +7,20 @@
 
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'contact.css' %}">
-    <h1>Contacta amb nosaltres!</h1>
-    <p> Telefon: 123 45 67 89</p>
-    <p> Correu: carrentingudl@gmail.com</p>
-    <p> Direcció: </p>
-    <div>
-        <p>Carrer Ausias March, 104</p>
-        <p>25001 Lleida</p>
-        <p>España</p>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h1>Contacta amb nosaltres!</h1>
+            <p> Telefon: 123 45 67 89</p>
+            <p> Correu: carrentingudl@gmail.com</p>
+            <p> Direcció: </p>
+            <div>
+                <p>Carrer Ausias March, 104</p>
+                <p>25001 Lleida</p>
+                <p>España</p>
+            </div>
+        </div>
+        <div class="contact-image">
+            <img src="{% static 'img/Cappont.jpg' %}" alt="Imatge de contacte">
+        </div>
     </div>
 {% endblock %}
