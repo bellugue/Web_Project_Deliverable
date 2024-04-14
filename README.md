@@ -31,16 +31,4 @@ Usage
 ```
 docker-compose up
 ```
-2. Do makemigrations  & migrate in the container:
-&ensp; Use ```Docker ps``` in another Terminal to see running containers and ```docker exec -t -i container_id bash``` to open container's terminal.
-```
-python manage.py makemigrations
-```
-```
-python manage.py migrate
-```
-3. Create superuser in the container:
-```
-python manage.py createsuperuser
-```
-4. Go to [LocalHost](http://localhost:8000/)
+2. Go to [LocalHost](http://localhost:8000/)
