@@ -4,24 +4,42 @@ h1 {
 
 .contact-container {
     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .contact-info {
     flex: 1;
     background-color: white; /* Fondo blanco para el texto */
     padding: 20px; /* Añade un espacio alrededor del contenido */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    max-width: 30%; /* Limita el ancho máximo */
 }
 
 .contact-image {
+    margin-top: 150px;
     flex: 1;
-    background-color: #242526; /* Color de fondo para la imagen (opcional) */
-    padding: 20px; /* Añade un espacio alrededor de la imagen */
+    background-color: #242526;
+    padding: 10px;
+    box-sizing: border-box;
     display: flex;
-    justify-content: center; /* Centra la imagen horizontalmente */
     align-items: center; /* Centra la imagen verticalmente */
 }
 
 .contact-image img {
-    max-width: 100%; /* La imagen ocupará todo el ancho disponible en su contenedor */
-    max-height: 100vh; /* La imagen ocupará el 100% de la altura de la ventana del navegador */
+    width: 100%; /* La imagen ocupará todo el ancho disponible en su contenedor */
+    height: auto;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 850px) {
+    .contact-container {
+        flex-direction: column; /* Cambia la dirección de la disposición a vertical */
+        align-items: center; /* Centra los elementos horizontalmente */
+    }
+
+    .contact-image,
+    .contact-info {
+        max-width: 100%; /* Ambos elementos ocuparán el ancho completo de la pantalla */
+    }
 }
