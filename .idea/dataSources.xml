@@ -11,7 +11,7 @@
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
     <data-source source="LOCAL" name="db" uuid="6cb9f0d0-3df0-4ec2-8891-a6e0488fdf65">
-      <driver-ref>sqlite.xerial</driver-ref>
+      <driver-ref>56099cf8-8924-4f19-967a-a50ca24b5a11</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\QUIM\Desktop\web\First_Deliverable\db.sqlite3</jdbc-url>
