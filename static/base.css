@@ -269,36 +269,6 @@ nav input{
   display: none;
 }
 
-/* Funciona amb el footer fix
-.body-text{
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
-  padding: 0 30px;
-  margin-bottom: 30px;
-}
-
-.body-text div{
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.footer {
-  /*background: #3586ff;*//*
-  position: fixed;
-  width: 100%;
-  background: #00060e;
-  min-height: 100px;
-  padding: 20px 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}*/
-
 .main-content {
   flex: 1;
   display: flex;
