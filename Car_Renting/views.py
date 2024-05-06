@@ -104,8 +104,10 @@ def seleccio_cotxe(request, car_name, dealer_id):
     fecha_salida = datetime.strptime(fecha_salida_str, '%B %d, %Y').date()
 
     print(fecha_entrada, fecha_salida)
-    car = get_object_or_404(Car, name=car_name)
-    dealer = get_object_or_404(AuthorisedDealer, id_authorisedDealer=dealer_id)
+
+    #arreglar
+    car = Car.objects.filter(name=car_name).first()
+    dealer = AuthorisedDealer.objects.filter(id_authorisedDealer=dealer_id).first()
 
     if request.method == 'POST':
         form = RentForm(request.POST)
@@ -117,6 +119,8 @@ def seleccio_cotxe(request, car_name, dealer_id):
                 rent.id_authorisedDealer = dealer
                 rent.fecha_entrada = fecha_entrada
                 rent.fecha_salida = fecha_salida
+                rent.user = request.user
+
                 rent.save()
 
                 # Redireccionar a la homePage
@@ -128,6 +132,7 @@ def seleccio_cotxe(request, car_name, dealer_id):
     else:
         # Completar automáticamente los campos del formulario con la información obtenida
         initial_data = {
+            'user': request.user,
             'NIF': dealer.NIF_bussines,
             'car_rented': car,
             'id_authorisedDealer': dealer,

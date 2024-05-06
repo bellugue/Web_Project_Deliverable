@@ -1,5 +1,5 @@
 from django import forms
-from .models import Rent
+from .models import Rent, Car
 
 
 class RentForm(forms.ModelForm):
@@ -18,3 +18,8 @@ class DateForm(forms.Form):
         'fecha_entrada': forms.DateInput(attrs={'type': 'date'}),
         'fecha_salida': forms.DateInput(attrs={'type': 'date'}),
     }
+
+class CreateForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = ['name', 'licensePlate', 'model', 'brand', 'mileage']

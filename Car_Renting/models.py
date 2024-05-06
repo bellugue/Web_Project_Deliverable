@@ -33,6 +33,7 @@ class Car(models.Model):
 
 
 class Rent(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     NIF = models.ForeignKey(Business, on_delete=models.CASCADE)
     car_rented = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='car_rented')
     id_authorisedDealer = models.ForeignKey(AuthorisedDealer, on_delete=models.CASCADE)
