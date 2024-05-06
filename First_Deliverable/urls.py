@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Car_Renting.views import homePage, register, signIn, list_cars, reset_password, seleccio_cotxe, about_us, contact, \
-    logout_view, view_rent
+    logout_view, view_rent, create_car
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +31,5 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('logout/', logout_view, name='logout'),
     path('rent/<int:rent_id>/', view_rent, name='view_rent'),
-
+    path('create_car/', create_car, name='create_car'),
 ]

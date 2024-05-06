@@ -7,9 +7,11 @@ from pyexpat.errors import messages
 from django.contrib.auth import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from Car_Renting.forms import RentForm, DateForm
+from Car_Renting.forms import RentForm, DateForm, CreateForm
 from Car_Renting.models import Car, AuthorisedDealer, Rent
 from django.contrib.auth import logout,authenticate, login
+from django.http import JsonResponse
+import requests
 
 
 
@@ -189,3 +191,14 @@ def view_rent(request, rent_id):
     # Obtener la reserva por su ID o mostrar un error 404 si no existe
     rent = get_object_or_404(Rent, pk=rent_id)
     return render(request, 'confirmRent.html', {'rent': rent})
+
+@login_required(login_url='login')
+def create_car(request):
+    if request.method == 'POST':
+        form = CreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('homePage')
+    else:
+        form = CreateForm()
+    return render(request, 'create_car.html', {'form': form})

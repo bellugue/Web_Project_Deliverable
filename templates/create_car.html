@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Afegir nou cotxe
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2 class="h2-title-form"> Formulari per alquilar</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Reservar</button>
+        </form>
+    </div>
+
+    <script src={% static 'js/autocomplete.js'%}></script>
+{% endblock %}
