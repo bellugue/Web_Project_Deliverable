@@ -1,4 +1,6 @@
 from django import forms
+from django.forms import DateInput
+
 from .models import Rent, Car
 
 
@@ -23,3 +25,13 @@ class CreateForm(forms.ModelForm):
     class Meta:
         model = Car
         fields = ['name', 'licensePlate', 'model', 'brand', 'mileage']
+
+
+class EditRentForm(forms.ModelForm):
+    class Meta:
+        model = Rent
+        fields = ['fecha_entrada', 'fecha_salida', 'nombre_cliente', 'telefono_cliente', 'correo_cliente']
+        widgets = {
+            'fecha_entrada': DateInput(attrs={'type': 'date'}),
+            'fecha_salida': DateInput(attrs={'type': 'date'}),
+        }

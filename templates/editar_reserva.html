@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Editar Reserva
+{% endblock %}
+
+{% block content %}
+    <h1>Editar Reserva</h1>
+    <!-- Mostrar mensajes de error -->
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+    </form>
+{% endblock %}
