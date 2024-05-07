@@ -1,13 +1,14 @@
 from datetime import date, datetime
 
 from django.shortcuts import render, redirect, get_object_or_404
+from django.template.context_processors import request
 from django.views.generic import ListView
 from django.contrib.auth.models import User
 from pyexpat.errors import messages
 from django.contrib.auth import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from Car_Renting.forms import RentForm, DateForm, CreateForm
+from Car_Renting.forms import RentForm, DateForm, CreateForm, EditRentForm
 from Car_Renting.models import Car, AuthorisedDealer, Rent
 from django.contrib.auth import logout,authenticate, login
 from django.http import JsonResponse
@@ -202,3 +203,64 @@ def create_car(request):
     else:
         form = CreateForm()
     return render(request, 'create_car.html', {'form': form})
+
+
+@login_required(login_url='login')
+def eliminar_reserva(request, reserva_id):
+    reserva = get_object_or_404(Rent, pk=reserva_id)
+    reserva.delete()
+    return redirect('mis_reservas')
+
+
+@login_required
+def mis_reservas(request):
+    user = request.user
+    reservas = Rent.objects.filter(user=user).select_related('car_rented')
+    return render(request, 'mis_reservas.html', {'reservas': reservas})
+
+
+def comprobar_reserva_valida(request, reserva, fecha_entrada, fecha_salida):
+    errores = {}
+
+    # Comprobación de la fecha de salida mayor que la de entrada
+    if fecha_entrada >= fecha_salida:
+        errores['fecha_salida'] = "La fecha de salida debe ser posterior a la fecha de entrada."
+
+    # Comprobación de que las fechas no sean menores al día actual
+    today = datetime.now().date()
+    if fecha_entrada < today or fecha_salida < today:
+        errores['fecha_entrada'] = "Las fechas no pueden ser anteriores al día actual."
+
+    # Comprobación de si ya hay una reserva para ese coche en esas fechas
+    reserva_existente = Rent.objects.filter(car_rented=reserva.car_rented, fecha_entrada__lte=fecha_salida,
+                                            fecha_salida__gte=fecha_entrada).exclude(pk=reserva.pk).exists()
+    if reserva_existente:
+        errores['fecha_entrada'] = "Ya hay una reserva para este coche en las fechas seleccionadas. Lo sentimos."
+
+    return errores
+
+
+from django.contrib import messages
+@login_required
+def editar_reserva(request, rent_id):
+    reserva = Rent.objects.get(pk=rent_id)
+
+    if request.method == 'POST':
+        form = EditRentForm(request.POST, instance=reserva)
+        fecha_entrada = datetime.strptime(form['fecha_entrada'].value(), '%Y-%m-%d').date()
+        fecha_salida = datetime.strptime(form['fecha_salida'].value(), '%Y-%m-%d').date()
+
+        errores = comprobar_reserva_valida(request, reserva, fecha_entrada, fecha_salida)
+        if errores:
+            for campo, mensaje in errores.items():
+                form.add_error(campo, mensaje)
+        else:
+            if form.is_valid():
+                form.save()
+
+                messages.success(request, "La reserva se ha actualizado correctamente.")
+                return redirect('mis_reservas')
+    else:
+        form = EditRentForm(instance=reserva)
+    return render(request, 'editar_reserva.html', {'form': form})
+

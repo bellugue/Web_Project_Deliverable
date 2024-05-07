@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Afegir nou cotxe
+{% endblock %}
+
+{% block content %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    <h1>Mis Reservas</h1>
+        <ul>
+            {% for reserva in reservas %}
+                <li>
+                    <p>Fecha de Entrada: {{ reserva.fecha_entrada }}</p>
+                    <p>Fecha de Salida: {{ reserva.fecha_salida }}</p>
+                    <p>Nombre del Cliente: {{ reserva.nombre_cliente }}</p>
+                    <p>Teléfono del Cliente: {{ reserva.telefono_cliente }}</p>
+                    <p>Correo del Cliente: {{ reserva.correo_cliente }}</p>
+                    <!-- Información del coche -->
+                    <p>Coche Alquilado: {{ reserva.car_rented.name }}</p>
+                    <p>Matrícula: {{ reserva.car_rented.licensePlate }}</p>
+                    <p>Marca: {{ reserva.car_rented.brand }}</p>
+                    <p>Modelo: {{ reserva.car_rented.model }}</p>
+                    <p>Kilometraje: {{ reserva.car_rented.mileage }}</p>
+                    <a href="{% url 'editar_reserva' reserva.id %}">Editar Reserva</a>
+                    <!-- Botón para eliminar la reserva -->
+                    <form action="{% url 'eliminar_reserva' reserva.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Eliminar Reserva">
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+{% endblock %}

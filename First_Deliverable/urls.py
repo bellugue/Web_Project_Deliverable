@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Car_Renting.views import homePage, register, signIn, list_cars, reset_password, seleccio_cotxe, about_us, contact, \
-    logout_view, view_rent, create_car
+    logout_view, view_rent, create_car, mis_reservas, editar_reserva, eliminar_reserva
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +32,7 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('rent/<int:rent_id>/', view_rent, name='view_rent'),
     path('create_car/', create_car, name='create_car'),
+    path('mis_reservas/', mis_reservas, name='mis_reservas'),
+    path('editar_reserva/<int:rent_id>/', editar_reserva, name='editar_reserva'),
+    path('eliminar_reserva/<int:reserva_id>/', eliminar_reserva, name='eliminar_reserva'),
 ]
