@@ -6,12 +6,20 @@
 {% endblock %}
 
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'editar_reserva.css' %}">
     <h1>Editar Reserva</h1>
     <!-- Mostrar mensajes de error -->
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar cambios</button>
-    </form>
+    <div class="dealer-card-container">
+        <div class="dealer-card">
+            <div class="form-container">
+                <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="button">Guardar canvis</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

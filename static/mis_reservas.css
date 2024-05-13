@@ -1,0 +1,53 @@
+h1{
+    text-align: center;
+}
+
+.dealer-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dealer-card {
+    list-style-type: none;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: calc(33.33% - 20px);
+    max-width: 400px; /* Ancho máximo para evitar que las tarjetas se estiren demasiado */
+}
+
+li{
+    font-weight: 400;
+}
+.button1 {
+    display: inline-block;
+    padding: 3px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button1:hover {
+    background-color: #0056b3;
+}
+
+.button2 {
+    display: inline-block;
+    padding: 3px 12px;
+    background-color: #ff002f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button2:hover {
+    background-color: #85011a;
+}

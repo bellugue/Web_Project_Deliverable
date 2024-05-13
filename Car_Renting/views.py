@@ -12,7 +12,7 @@ from Car_Renting.forms import RentForm, DateForm, CreateForm, EditRentForm
 from Car_Renting.models import Car, AuthorisedDealer, Rent
 from django.contrib.auth import logout,authenticate, login
 from django.http import JsonResponse
-import requests
+#import requests
 
 
 

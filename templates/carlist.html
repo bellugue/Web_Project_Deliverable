@@ -17,9 +17,9 @@
             <div class="buscador-dies">
                  <form method="post" action="/carlist/{{ pk_authorised_dealer }}/">
                     {% csrf_token %}
-                    <label for="fecha_entrada">Fecha de entrada:</label>
+                    <label for="fecha_entrada">Data d'entrada:</label>
                     <input type="date" id="fecha_entrada" name="fecha_entrada">
-                    <label for="fecha_salida">Fecha de salida:</label>
+                    <label for="fecha_salida">Data de sortida:</label>
                     <input type="date" id="fecha_salida" name="fecha_salida">
                     <button type="submit">Buscar</button>
                 </form>
@@ -39,7 +39,7 @@
                     <th>Marca</th>
                     <th>Quilometratge</th>
                     <th>Concessionari</th>
-                    <th>Alquilar</th>
+                    <th>Lloguer</th>
                 </tr>
             </thead>
             {% if fecha_entrada and fecha_salida %}
@@ -58,7 +58,7 @@
                                 <td>{{ car.mileage }}</td>
                                 <td>{{ car.AuthorisedDealer }}</td>
                                 <td class="button-cell">
-                                    <a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer %}?fecha_entrada={{ fecha_entrada }}&fecha_salida={{ fecha_salida }}" class="button" style="color: white; text-decoration: none;">Alquilar cotxe '{{ car.model }}'</a>
+                                    <a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer %}?fecha_entrada={{ fecha_entrada }}&fecha_salida={{ fecha_salida }}" class="button" style="color: white; text-decoration: none;">Llogar cotxe '{{ car.model }}'</a>
                                 </td>
                             </tr>
                         {% endfor %}
