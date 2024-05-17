@@ -6,14 +6,21 @@
 {% endblock %}
 
 {% block content %}
-    <div class="form-container">
-        <h2 class="h2-title-form"> Formulari per alquilar</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Reservar</button>
-        </form>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mis_reservas.css' %}">
+    <script src="{% static 'js/autocomplete.js' %}"></script>
 
-    <script src={% static 'js/autocomplete.js'%}></script>
+    <div class="dealer-card-container">
+        <ul class="dealer-card">
+            <div class="form-container">
+                <h2 class="h2-title-form"> Formulari per afegir un nou cotxe</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Reservar</button>
+                </form>
+            </div>
+        </ul>
+    </div>
 {% endblock %}

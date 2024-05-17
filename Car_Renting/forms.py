@@ -24,7 +24,7 @@ class DateForm(forms.Form):
 class CreateForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields = ['name', 'licensePlate', 'model', 'brand', 'mileage']
+        fields = ['AuthorisedDealer', 'name', 'licensePlate', 'model', 'brand', 'mileage']
 
 
 class EditRentForm(forms.ModelForm):
