@@ -1,0 +1,64 @@
+h1{
+    text-align: center;
+}
+
+.dealer-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dealer-card {
+    list-style-type: none;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: calc(33.33% - 20px);
+    max-width: 400px; /* Ancho máximo para evitar que las tarjetas se estiren demasiado */
+}
+
+li{
+    font-weight: 400;
+}
+.button1 {
+    display: inline-block;
+    padding: 3px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button1:hover {
+    background-color: #0056b3;
+}
+
+/* Añadir espacio entre los campos del formulario */
+form p {
+    margin-bottom: 10px; /* Ajusta este valor según sea necesario */
+}
+
+/* Archivo: mis_reservas.css */
+.ui-autocomplete {
+    max-width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: white;
+    border: 1px solid #ddd;
+    z-index: 1000; /* Asegúrate de que el menú se muestre sobre otros elementos */
+}
+
+.ui-menu-item {
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.ui-menu-item:hover {
+    background-color: #f0f0f0;
+}

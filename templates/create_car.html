@@ -8,19 +8,17 @@
 {% block content %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'mis_reservas.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'create_car.css' %}">
     <script src="{% static 'js/autocomplete.js' %}"></script>
 
+    <h1> Afegir cotxe a concesionari </h1>
     <div class="dealer-card-container">
         <ul class="dealer-card">
-            <div class="form-container">
-                <h2 class="h2-title-form"> Formulari per afegir un nou cotxe</h2>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">Reservar</button>
-                </form>
-            </div>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <h1><button class="button1">Afegir cotxe</button></h1>
+            </form>
         </ul>
     </div>
 {% endblock %}

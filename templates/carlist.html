@@ -7,7 +7,6 @@
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'carlist.css' %}">
 
-    <li><a href="{% url 'create_car' %}">Afegir un nou cotxe</a></li>
     <div class="car-container">
         {% if fecha_entrada and fecha_salida %}
             <h1>Llista de cotxes disponibles {{ fecha_entrada }} - {{ fecha_salida }}</h1>
@@ -23,8 +22,9 @@
                     <input type="date" id="fecha_salida" name="fecha_salida">
                     <button type="submit">Buscar</button>
                 </form>
+
             </div>
-        
+           <a href="{% url 'create_car' %}" class="button-cell">Afegir un nou cotxe</a>
             {% if error_message %}
                 <div class="error-message">
                     {{ error_message }}
