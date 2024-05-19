@@ -4,11 +4,11 @@ from behave import fixture, use_fixture
 
 
 def before_all(context):
-    context.browser = Browser('firefox', headless=True)
-    #options = webdriver.FirefoxOptions()
-    #options.add_argument('--headless')
+    #context.browser = Browser('firefox', headless=True)
+    options = webdriver.FirefoxOptions()
+    options.add_argument('--headless')
+    context.browser = webdriver.Firefox(options=options)
 
-    #context.browser = webdriver.Firefox(options=options)
 
 def after_all(context):
     context.browser.quit()

@@ -1,4 +1,6 @@
+
 from behave import *
+"""
 from django.contrib.auth.models import Car_Renting
 
 use_step_matcher("parse")
@@ -10,3 +12,4 @@ def step_impl(context, username):
     from Car_Renting.models import Car
     for row in context.table:
         car = Car(AuthorisedDealer = )
+"""
