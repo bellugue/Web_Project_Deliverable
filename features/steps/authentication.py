@@ -14,3 +14,8 @@ def step_impl(context, username, password):
     context.browser.fill('username', username)
     context.browser.fill('password', password)
     form.find_by_value('login').first.click()
+
+@given('I\'m not logged in')
+def step_impl(context):
+    context.browser.visit(context.get_url(''))
+    assert context.browser.is_text_present('login')
