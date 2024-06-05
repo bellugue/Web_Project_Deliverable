@@ -7,6 +7,7 @@
 
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'mis_reservas.css' %}">
+    <span vocab="http://schema.org/">
         {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -18,21 +19,26 @@
         <div class="dealer-card-container">
             {% for reserva in reservas %}
             <ul class="dealer-card">
-                <li>Data d'entrada: {{ reserva.fecha_entrada }}</li>
-                <li>Data de sortida: {{ reserva.fecha_salida }}</li>
-                <li>Nom del Client: {{ reserva.nombre_cliente }}</li>
-                <li>Telf. del Client: {{ reserva.telefono_cliente }}</li>
-                <li>Correu del Client: {{ reserva.correo_cliente }}</li>
+                <div typeof="schema:RentalCarReservation">
+                <li>Data d'entrada: <span property="schema:pickupTime">{{ reserva.fecha_entrada }}</span> </li>
+                <li>Data de sortida: <span property="schema:dropoffTime">{{ reserva.fecha_salida }}</span></li>
+                <li>Nom del Client: <span property="schema:name">{{ reserva.nombre_cliente }}</span></li>
+                <li>Telf. del Client: <span property="schema:additionalType">{{ reserva.telefono_cliente }}</span></li>
+                    <li>Correu del Client: <span property="schema:additionalType"> {{ reserva.correo_cliente }}</span></li>
+                <li>Cotxe Llogat:<span property="schema:reservationFor">{{ reserva.car_rented.name }}</span> </li>
+                </div>
                 <!-- Información del coche -->
-                <li>Cotxe Llogat: {{ reserva.car_rented.name }}</li>
-                <li>Matrícula: {{ reserva.car_rented.licensePlate }}</li>
-                <li>Marca: {{ reserva.car_rented.brand }}</li>
-                <li>Model: {{ reserva.car_rented.model }}</li>
-                <li>Quilometratge: {{ reserva.car_rented.mileage }}</li>
+                <div typeof="schema:Car">
+                <li>Matrícula: <span property="schema:identifier">{{ reserva.car_rented.licensePlate }}</span></li>
+                    <li>Marca: <span property="schema:slogan">{{ reserva.car_rented.brand }}</span></li>
+                <li>Model: <span property="schema:model">{{ reserva.car_rented.model }}</span></li>
+                    <li>Quilometratge: <span property="mileageFromOdometer">{{ reserva.car_rented.mileage }}</span></li>
                 <a href="{% url 'editar_reserva' reserva.id %}" class="button1">Editar Reserva</a>
                 <!-- Botón para eliminar la reserva -->
                 <a href="{% url 'eliminar_reserva' reserva.id %}" class="button2">Eliminar Reserva</a>
+                </div>
             </ul>
             {% endfor %}
         </div>
+    </span>
 {% endblock %}

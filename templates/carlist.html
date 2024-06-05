@@ -6,7 +6,7 @@
 {% endblock %}
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'carlist.css' %}">
-
+    <span vocab="http://schema.org/" typeof="Car">
     <div class="car-container">
         {% if fecha_entrada and fecha_salida %}
             <h1>Llista de cotxes disponibles {{ fecha_entrada }} - {{ fecha_salida }}</h1>
@@ -22,7 +22,6 @@
                     <input type="date" id="fecha_salida" name="fecha_salida">
                     <button type="submit">Buscar</button>
                 </form>
-
             </div>
            <a href="{% url 'create_car' %}" class="button-cell">Afegir un nou cotxe</a>
             {% if error_message %}
@@ -51,12 +50,12 @@
                     {% else %}
                         {% for car in cars %}
                             <tr>
-                                <td>{{ car.name }}</td>
-                                <td>{{ car.licensePlate }}</td>
-                                <td>{{ car.model }}</td>
-                                <td>{{ car.brand }}</td>
-                                <td>{{ car.mileage }}</td>
-                                <td>{{ car.AuthorisedDealer }}</td>
+                                <td><span property="name">{{ car.name }}</span></td>
+                                <td><span property="identifier">{{ car.licensePlate }}</span></td>
+                                <td><span property="model">{{ car.model }}</span></td>
+                                <td><span property="brand">{{ car.brand }}</span> </td>
+                                <td><span property="mileageFromOdometer">{{ car.mileage }}</span></td>
+                                <td><span property="identifier">{{ car.AuthorisedDealer }}</span></td>
                                 <td class="button-cell">
                                     <a href="{% url 'seleccio_cotxe' car.name car.AuthorisedDealer %}?fecha_entrada={{ fecha_entrada }}&fecha_salida={{ fecha_salida }}" class="button" style="color: white; text-decoration: none;">Llogar cotxe '{{ car.model }}'</a>
                                 </td>
@@ -67,5 +66,5 @@
             {% endif %}
         </table>
     </div>
-
+    </span>
 {% endblock %}

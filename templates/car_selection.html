@@ -7,30 +7,34 @@
 
 
 {% block content %}
+
         <link rel="stylesheet" type="text/css" href="{% static 'car_selection.css' %}">
-        <h1>Llogar '{{ car.name }}'</h1>
+        <h1 property="name">Llogar '{{ car.name }}'</h1>
         <div class="details-wrapper">
+        <span vocab="http://schema.org/" typeof="Car">
             <div class="details-container">
                 <h2>Detalle del Coche</h2>
                 <div class="details-content">
-                    <p><strong>Nombre:</strong> {{ car.name }}</p>
-                    <p><strong>Matrícula: </strong>{{ car.licensePlate }}</p>
-                    <p><strong>Modelo: </strong> {{ car.model }}</p>
-                    <p><strong>Marca: </strong> {{ car.brand }}</p>
-                    <p><strong>Kilometraje: </strong> {{ car.mileage }}</p>
+                    <p><strong> Nombre: </strong> <span property="name"> {{ car.name }} </span></p>
+                    <p><strong> Matrícula: </strong> <span property="vehicleIdentificationNumber"> {{ car.licensePlate }}</span></p>
+                    <p><strong> Modelo: </strong> <span property="model"> {{ car.model }} </span></p>
+                    <p><strong> Marca: </strong> <span property="brand"> {{ car.brand }} </span></p>
+                    <p><strong> Kilometraje: </strong> <span property="mileageFromOdometer"> {{ car.mileage }} </span></p>
                 </div>
             </div>
+        </span>
+        <span vocab="http://schema.org/" typeof="AutoDealer">
             <div class="details-container">
                 <h2>Informació del concessionari</h2>
                 <div class="details-content">
-                    <p><strong>Business name:</strong> {{ dealer.NIF_bussines.name }}</p>
-                    <p><strong>ID:</strong> {{ dealer.id_authorisedDealer }}</p>
-                    <p><strong>Location:</strong> {{ dealer.location }}</p>
-                    <p><strong>Schedule:</strong> {{ dealer.schedule }}</p>
+                    <p><strong> Business name: </strong> <span property="name"> {{ dealer.NIF_bussines.name }} </span></p>
+                    <p><strong> ID: </strong> <span property="identifier">{{ dealer.id_authorisedDealer }}</span></p>
+                    <p><strong> Location: </strong> <span property="address">{{ dealer.location }} </span></p>
+                    <p><strong> Schedule: </strong> <span property="openingHours">{{ dealer.schedule }}</span></p>
                 </div>
             </div>
+        </span>
         </div>
-
 
        <div class="form-container">
             <h2 class="h2-title-form"> Formulari per llogar</h2>
@@ -40,4 +44,5 @@
                 <button type="submit">Reservar</button>
             </form>
         </div>
+
 {% endblock %}
