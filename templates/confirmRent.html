@@ -6,17 +6,19 @@
 {% endblock %}
 
 {% block content %}
+    <span vocab="http://schema.org/" typeof="RentalCarReservation">
     <link rel="stylesheet" type="text/css" href="{% static 'confirmRent.css' %}">
     <div class="rent">
         <h1>Reserva confirmada</h1>
         <h2>Detalles de la reserva</h2>
-        <p>ID del autorizado: {{ rent.id_authorisedDealer }}</p>
-        <p>NIF del negocio: {{ rent.NIF }}</p>
-        <p>Coche alquilado: {{ rent.car_rented }}</p>
-        <p>Fecha de entrada: {{ rent.fecha_entrada }}</p>
-        <p>Fecha de salida: {{ rent.fecha_salida }}</p>
-        <p>Nombre del cliente: {{ rent.nombre_cliente }}</p>
-        <p>Teléfono del cliente: {{ rent.telefono_cliente }}</p>
-      <p>Correo electrónico del cliente: {{ rent.correo_cliente }}</p>
+        <p>ID del autorizado: <span property="identifier">{{ rent.id_authorisedDealer }}</span></p>
+        <p>NIF del negocio: <span property="additionalType"> {{ rent.NIF }} </span></p>
+        <p>Coche alquilado: <span property="reservationFor">{{ rent.car_rented }}</span></p>
+        <p>Fecha de entrada: <span property="pickupTime">{{ rent.fecha_entrada }}</span></p>
+        <p>Fecha de salida: <span property="dropoffTime">{{ rent.fecha_salida }}</span></p>
+        <p>Nombre del cliente: <span property="underName">{{ rent.nombre_cliente }}</span></p>
+        <p>Teléfono del cliente: <span property="additionalType">{{ rent.telefono_cliente }}</span></p>
+        <p>Correo electrónico del cliente: <span property="additionalType">{{ rent.correo_cliente }}</span></p>
     </div>
+    </span>
 {% endblock %}

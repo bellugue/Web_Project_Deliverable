@@ -6,20 +6,21 @@
 {% endblock %}
 
 {% block content %}
+    <span vocab="http://schema.org/" typeof="AutoDealer">
     <link rel="stylesheet" type="text/css" href="{% static 'homePage.css' %}">
     <h1>Llistat de concessionaris</h1>
     <div class="dealer-card-container">
         {% for dealer in authorisedDealers %}
             <ul class="dealer-card">
-                <h3> {{ dealer.NIF_bussines.name }}</h3>
-                <li> {{ dealer.NIF_bussines.location }}</li>
+                <h3> <span property="name">{{ dealer.NIF_bussines.name }}</span></h3>
+                <li> <span property="location">{{ dealer.NIF_bussines.location }}</span></li>
                 <h3> Info concessionari: </h3>
-                <li>Id: {{ dealer.id_authorisedDealer }}</li>
-                <li>Ubicació: {{ dealer.location }}</li>
-                <li>Horari: {{ dealer.schedule }}</li>
+                <li> Id: <span property="identifier">{{ dealer.id_authorisedDealer }}</span></li>
+                <li> Ubicació: <span property="location">{{ dealer.location }}</span></li>
+                <li> Horari: <span property="openingHours">{{ dealer.schedule }}</span></li>
                 <li><a href="{% url 'carList' pk=dealer.pk %}" class="button">Consultar cotxes</a></li>
             </ul>
         {% endfor %}
     </div>
-
+    </span>
 {% endblock %}
